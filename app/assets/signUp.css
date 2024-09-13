@@ -1,0 +1,116 @@
+@charset "UTF-8";
+@import url("../../inc/notLoginHeader.css");
+@import url("../../inc/loginHeader.css");
+@import url("../../inc/footer.css");
+@import url("../../inc/same.css");
+
+/* 新規登録フォーム */
+.top-wrapper {
+    text-align: center;
+}
+.top-wrapper p{
+    color: red;
+}
+.container {
+    margin-bottom: 30px;
+}
+.container ul {
+    list-style: none;
+    padding-left: 0px;
+    margin: 0px;
+}
+.container li {
+    margin-bottom: 5px;
+}
+.under-line {
+    border-bottom: 1px solid black;
+    display: inline-block;
+}
+.warning {
+    color: red;
+}
+.inline {
+    display: inline-block;
+}
+.indention {
+    display: block;
+}
+.small-font {
+    font-size: smaller;
+}
+.top-wrapper button {
+    margin: 60px auto 0px auto;
+    padding: 10px 40px;
+    border-radius: 10px;
+    background-color: #FFAD90;
+    font-weight: bold;
+}
+
+
+.edit-forms {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.not-double-click {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.not-double-click p {
+    margin: 0px;
+    width: 40%;
+}
+.left{
+    background-color: #D3D3D3;
+}
+.right {
+    background-color: #D3D3D3;
+}
+.edit-forms button {
+    padding: 10px 20px;
+}
+
+
+/* メディアクエリ */
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+    .small-font .indention {
+        display: none;
+    }
+    .top-wrapper button {
+        padding: 10px 60px;
+        font-size: large;
+    }
+    .subheading br {
+        display: none;
+    }
+    .not-double-click p {
+        margin: 0px;
+        width: 30%;
+    }
+    .not-double-click br {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .small-font .indention {
+        display: none;
+    }
+    .top-wrapper button {
+        padding: 10px 80px;
+        font-size: large;
+    }
+    .subheading br {
+        display: none;
+    }
+    .not-double-click p {
+        margin: 0px;
+        width: 30%;
+    }
+    .not-double-click br {
+        display: none;
+    }
+}

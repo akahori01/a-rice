@@ -1,0 +1,158 @@
+@charset "UTF-8";
+@import url("../../inc/notLoginHeader.css");
+@import url("../../inc/loginHeader.css");
+@import url("../../inc/footer.css");
+@import url("../../inc/same.css");
+
+table {
+    margin: 10px auto;
+    border: 1px solid black;
+    background-color: white;
+}
+th {
+    text-align: center;
+    margin: 0 auto;
+    font-size: smaller;
+}
+td {
+    text-align: center;
+    margin: 0 auto;
+    font-weight: 400;
+}
+h4 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+.noneBorder button {
+    padding: 0px 10px;
+    background-color: #D3D3D3;
+    float: right;
+}
+
+
+
+
+.purchase-history h4 {
+    margin-bottom: 0px;
+}
+
+
+
+
+.item-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.item-img {
+    width: 100px;
+    margin-right: 10px;
+}
+.item-container ul {
+    padding-left: 0px;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.item-img ul {
+    list-style: none;
+
+}
+
+.item-img li {
+    position: relative;
+    border: 1px solid black;
+}
+
+.item-img li:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.item-img img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    object-fit: cover;
+}
+
+.item-text {
+    min-width: 200px;
+}
+
+.item-text ul {
+    list-style: none;
+}
+
+.item-text li {
+    position: relative;
+    padding: 5px;
+    font-size: smaller;
+}
+
+
+.big-lot-frame {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 90%;
+    padding: 10px 0px;
+    column-gap: 1%;
+    background-color: darkkhaki;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+.lower-right button{
+    padding: 0px 10px;
+    background-color: #D3D3D3;
+    float: right;
+}
+
+.person-info {
+    margin-top: 80px;
+}
+.inquiry ul {
+    list-style: none;
+    padding-left: 0px;
+    text-align: center;
+}
+
+.order-list {
+    display: block;
+    text-align: center;
+}
+.admin-page {
+    text-align: center;
+}
+/* メディアクエリ */
+@media screen and (min-width:480px) and (max-width:1024px) {
+    /* for iPad */
+    table {
+        width: 400px;
+    }
+}
+@media screen and (min-width:1024px) {
+    /* for PC */
+    table {
+        width: 400px;
+    }
+    .big-lot-frame {
+        width: 50%;
+    }
+}

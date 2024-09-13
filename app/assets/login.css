@@ -1,0 +1,81 @@
+@charset "UTF-8";
+@import url("../../inc/notLoginHeader.css");
+@import url("../../inc/loginHeader.css");
+@import url("../../inc/footer.css");
+@import url("../../inc/same.css");
+
+
+/* ログインフォーム */
+.top-wrapper {
+    margin: 0 10%;
+    text-align: center;
+}
+.login-form {
+    margin: 10px 0px;
+}
+
+.login-form input {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    text-align: center;
+    font-size: x-large;
+}
+
+.login-form button {
+    margin: 50px auto 0 auto;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 10px 60px;
+    font-weight: bold;
+    font-size: large;
+    background-color: #CCFF99;
+}
+
+
+.login-form ul {
+    list-style: none;
+    padding-left: 0px;
+    display: inline-block;
+}
+
+.login-form li {
+    opacity: 0.4;
+}
+
+.blank {
+    padding-left: 15px;
+}
+
+.indention{
+    display: block;
+}
+
+.top-wrapper a {
+    width: 50%;
+    display: block;
+    margin: 80px auto 0px auto;
+    padding: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    background-color: deepskyblue;
+}
+
+
+/* メディアクエリ */
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+    a .indention {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    a .indention {
+        display: none;
+    }
+}
+
+

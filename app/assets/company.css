@@ -1,0 +1,95 @@
+@charset "UTF-8";
+@import url("../../inc/notLoginHeader.css");
+@import url("../../inc/loginHeader.css");
+@import url("../../inc/footer.css");
+@import url("../../inc/same.css");
+
+main .features, main .price {
+    background-color: ivory;
+}
+main .features, main .special-case, main .price {
+    padding-top: 20px;
+}
+main .features h3, main .special-case h3, main .price h3 {
+    text-align: center;
+}
+main .top-wrapper, main .second-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    column-gap: 5%;
+    padding-bottom: 20px;
+}
+
+main .top-wrapper .container {
+    width: 33%;
+}
+main .second-wrapper .container {
+    width: 33%;
+}
+main .top-wrapper .image, main .second-wrapper .image {
+    height: 100px;                 /*レスポンシブにする*/
+    display: flex;
+    justify-content: center; /*左右中央揃え*/
+    align-items: center;
+}
+
+main .top-wrapper .image img, main .second-wrapper .image img{
+    width: 100%;
+    height: auto;
+}
+main .top-wrapper .text p {
+    text-align: center;
+}
+
+main .price .third-wrapper .text p {
+    text-align: center;
+}
+
+main .price .third-wrapper .text .side-by-side-1 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+main .price .third-wrapper .text .side-by-side-2 {
+    display: flex;
+    justify-content: center;
+}
+
+main .price .third-wrapper .text ul {
+    padding-left: 0px;
+}
+main .price .third-wrapper .text .notes {
+    padding-bottom: 50px;
+}
+main .price .third-wrapper .text ul li {
+    padding-right: 15px;
+    margin-left: 30px;
+}
+
+@media screen and (min-width:480px) and (max-width:780px) {
+    /* for iPad */
+    main .top-wrapper .image {
+        height: 160px;                 /*レスポンシブにする*/
+    }
+    main .second-wrapper .image {
+        height: 200px;                 /*レスポンシブにする*/
+    }
+}@media screen and (min-width:780px) and (max-width:1024px) {
+    /* for iPad */
+    main .top-wrapper .image {
+        height: 200px;                 /*レスポンシブにする*/
+    }
+    main .second-wrapper .image {
+        height: 250px;                 /*レスポンシブにする*/
+    }
+}
+@media screen and (min-width:1024px) {
+    /* for PC */
+    main .top-wrapper .image {
+        height: 200px;                 /*レスポンシブにする*/
+    }
+    main .second-wrapper .image {
+        height: 300px;                 /*レスポンシブにする*/
+    }
+}

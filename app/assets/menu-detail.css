@@ -1,0 +1,108 @@
+@charset "UTF-8";
+@import url("../../inc/notLoginHeader.css");
+@import url("../../inc/loginHeader.css");
+@import url("../../inc/footer.css");
+@import url("../../inc/same.css");
+
+
+main .transition a {
+    color: black;
+    text-decoration:none;
+    padding: 0px 10px;
+    margin-top: 20px;
+    background-color: #D3D3D3;
+    float: left;
+    border: 1px solid black;
+}
+
+
+.container ul {
+    padding-left: 0px;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.image ul {
+    list-style: none;
+
+}
+
+.image li {
+    position: relative;
+    border: 1px solid black;
+}
+
+.image li:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    object-fit: cover;
+}
+
+
+.char ul {
+    list-style: none;
+}
+
+.char li {
+    position: relative;
+    padding: 5px;
+}
+.wrapper-info h2 {
+    text-align: center;
+}
+
+/* メディアクエリ */
+@media screen and (min-width:480px) and (max-width:768px) {
+    /* for iPad */
+    .container ul {
+        max-width: 400px;
+    }
+}
+@media screen and (min-width:768px) and (max-width:1024px) {
+    /* for iPad */
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .container ul {
+        max-width: 450px;
+    }
+    .image {
+        width: 40%;
+        margin-right: 20px;
+    }
+}
+@media screen and (min-width:1024px) {
+    /* for PC */
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .container ul {
+        max-width: 500px;
+    }
+    .image {
+        width: 40%;
+        margin-right: 20px;
+    }
+}

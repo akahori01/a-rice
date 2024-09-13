@@ -1,0 +1,149 @@
+@charset "UTF-8";
+@import url("../../inc/notLoginHeader.css");
+@import url("../../inc/loginHeader.css");
+@import url("../../inc/footer.css");
+@import url("../../inc/same.css");
+
+table {
+    margin: 10px;
+}
+th {
+    text-align: center;
+    margin: 0 auto;
+    font-size: smaller;
+}
+td {
+    text-align: center;
+    margin: 0 auto;
+    font-size: larger;
+    font-weight: 400;
+}
+h4 {
+    text-align: center;
+}
+p {
+    text-align: center;
+}
+
+main .subheading p {
+    display: inline;
+}
+main .subheading .block {
+    display: block;
+    margin: 0px;
+}
+main .subheading .serch button {
+    display: block;
+    margin: 10px auto;
+}
+main button {
+    background-color: #D3D3D3;
+}
+main .buy-wrapper table {
+    font-size: smaller;
+}
+main .buy-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+main .buy-wrapper .item-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+main .buy-wrapper .item-container ul {
+    list-style: none;
+    margin-top: 0px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+.item-img li {
+    position: relative;
+    border: 1px solid black;
+}
+.item-img li:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+.item-img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+.item-img img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    object-fit: cover;
+}
+.ite-text li {
+    display: block;
+}
+.item-text {
+    font-size: smaller;
+}
+table {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.big-lot-frame {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    column-gap: 1%;
+    background-color: darkkhaki;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+main .order-blank-fill {
+    width: 50%;
+}
+
+
+/* メディアクエリ */
+@media screen and (min-width:480px) and (max-width:1024px) {
+    /* for iPad */
+    main .buy-wrapper .item-container .item-text br {
+        display: none;
+    }
+    .order-blank-fill {
+        display: none;
+    }
+}
+@media screen and (min-width:1024px) {
+    /* for PC */
+    main .buy-wrapper .item-container {
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    main .buy-wrapper .item-container .item-text br {
+        display: none;
+    }
+    .big-lot-frame {
+        flex-direction: row;
+        justify-content: space-evenly;
+        }
+    main .order-blank-fill {
+        width: 20%;
+    }
+}

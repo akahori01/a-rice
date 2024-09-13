@@ -1,0 +1,17 @@
+@charset "UTF-8";
+@import url("../../inc/notLoginHeader.css");
+@import url("../../inc/loginHeader.css");
+@import url("../../inc/footer.css");
+@import url("../../inc/same.css");
+
+.thanks-message {
+    text-align: center;
+}
+/* メディアクエリ */
+@media screen and (min-width:480px) and (max-width:1024px) {
+    /* for iPad */
+}
+@media screen and (min-width:1024px) {
+    /* for PC */
+}
+

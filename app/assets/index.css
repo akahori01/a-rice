@@ -1,0 +1,259 @@
+@charset "UTF-8";
+@import url("../../inc/notLoginHeader.css");
+@import url("../../inc/loginHeader.css");
+@import url("../../inc/footer.css");
+@import url("../../inc/same.css");
+
+/* 「ログイン・ログアウトしました」を上からスッと出す */
+.login-message{
+    animation-name: fadeDownAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    background-color: #EDFFBE;
+    text-align: center;
+}
+
+.login-message p {
+    margin: 0px;
+    font-size: larger;
+    font-weight: 500;
+}
+
+
+
+/* 商品数選択 */
+.input-field{
+    display: flex;
+    row-gap: 30px;
+    column-gap: 5%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    padding-bottom: 20px;
+    margin-right: 0px;
+}
+
+main .container {
+    width: 45%;
+}
+
+.container ul {
+    margin-top: 0px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.image ul {
+    list-style: none;
+}
+
+.image li {
+    position: relative;
+    border: 1px solid black;
+}
+
+.image li:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    object-fit: cover;
+}
+
+.char ul {
+    list-style: none;
+}
+
+.char li {
+    position: relative;
+    padding: 5px;
+}
+
+.char select {
+    width: 40px;
+    height: 30px;
+    font-size: 20px;
+}
+
+
+.message p {
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+
+
+/* カレンダー */
+.date-time-selection {
+    padding-top: 20px;
+    width: 100%;
+    margin: 0 auto;
+    border-top: 1px dashed #8B4513;
+}
+.notes ul {
+    text-align: center;
+    padding-left: 0px;
+}
+.notes li {
+    list-style-type: none;
+    color: black;
+}
+
+.hurry-holiday {
+    padding: 3px 8px;
+    background: red;
+    margin-left: 7px;
+}
+
+.waitingTime {
+    padding: 3px 8px;
+    background: palevioletred;
+    margin-left: 7px;
+}
+
+.calendar {
+    border: 1px solid black;
+    margin: 0 auto;
+    border-top: none;
+    margin-bottom: 20px;
+}
+
+.calendar caption {
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+.calendar input[type="radio"] {
+    display: none;
+}
+
+.calendar input[type="radio"]:checked + label {
+    background: #31A9EE;
+    color: #ffffff;
+}
+
+.calendar label {
+    display: block;
+    cursor: pointer;
+}
+
+.calendar td {
+    text-align: center;
+    font-size: larger;
+}
+
+
+
+
+.today {
+    background-color: lightpink;
+    border: 2px solid #006DD9;
+}
+
+.deliveryDate {
+    background-color: yellow;
+    border: 2px solid #006DD9;
+}
+
+.notDeliveryDate {
+    border: 2px solid #006DD9;
+    opacity: 0.3;
+}
+
+.holiday {
+    background-color: red;
+    border: 2px solid #006DD9;
+}
+
+.waitingTimeDay {
+    background-color: palevioletred;
+    border: 2px solid #006DD9;
+}
+
+.indention {
+    display: block;
+}
+
+.serch{
+    text-align: center;
+    cursor: pointer;
+}
+
+.serch button {
+    background-color: #EEFFFF;
+    font-weight: bold;
+    font-size: large;
+    padding: 10px 15px;
+    margin: 0 auto;
+}
+
+.serch button:hover {
+    background-color:#44FFFF; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
+    color: white;            /* サブメニュー項目にマウスが載ったときの文字色(濃い緑色) */
+}
+
+
+
+
+
+
+
+
+/* メディアクエリ */
+@media screen and (min-width:480px) and (max-width:1024px) {
+    /* for iPad */
+    main .container {
+        width: 30%;
+    }
+    .input-field {
+        justify-content: flex-start;
+    }
+    .indention {
+        display: none;
+    }
+    .calendar-form form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-start;
+        column-gap: 0%;
+    }
+    .notes br {
+        display: none;
+    }
+}
+@media screen and (min-width:1024px) {
+    /* for PC */
+    main .container {
+        width: 30%;
+    }
+    .input-field {
+        justify-content: flex-start;
+    }
+    .indention {
+        display: none;
+    }
+    .calendar-form form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .notes br {
+        display: none;
+    }
+}
