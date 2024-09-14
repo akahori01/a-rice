@@ -1,0 +1,55 @@
+/* 共通 */
+body {
+    margin: 0px auto;
+}
+
+main {
+    padding: 0px 5px 120px 5px;
+}
+footer {
+    position: fixed;
+    z-index: 5;
+    bottom: 0px;
+    left: 0px;
+}
+
+.title {
+    text-align: center;
+    font-family: "ヒラギノ丸ゴ ProN","Hiragino Maru Gothic ProN";
+    font-size: larger;
+}
+.subheading {
+    text-align: center;
+    font-family: "ヒラギノ丸ゴ ProN","Hiragino Maru Gothic ProN";
+}
+
+
+/* メディアクエリ */
+@media screen and (min-width:480px) and (max-width:1024px) {
+    /* for iPad */
+    main {
+        padding: 0px 10px 120px 10px;
+        margin: 0 auto;
+    }
+    .title br {
+        display: none;
+    }
+    footer {
+        position: static;
+    }
+}
+@media screen and (min-width:1024px) {
+    /* for PC */
+    main {
+        width: 1120px;
+        margin: auto;
+        padding: 70px 0px 150px 0px;
+    }
+    .title br {
+        display: none;
+    }
+    footer {
+        position: static;
+    }
+}
+

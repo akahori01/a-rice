@@ -1,0 +1,37 @@
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"]:checked + label {
+    background: #31A9EE;
+    color: #ffffff;
+}
+label {
+    display: block;
+    cursor: pointer;
+}
+td {
+    text-align: center;
+}
+.calendars {
+    display: table;
+}
+.calendar {
+    display: table-cell;
+    border: 1px solid black;
+}
+.holiday {
+    background-color: red;
+    border: 2px solid #006DD9;
+}
+.deliveryDate {
+    background-color: yellow;
+    border: 2px solid #006DD9;
+}
+.today {
+    background-color: lightpink;
+    border: 2px solid #006DD9;
+}
+.notDeliveryDate {
+    border: 2px solid #006DD9;
+    opacity: 0.3;
+}

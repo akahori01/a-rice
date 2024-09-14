@@ -1,0 +1,41 @@
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"]:checked + label {
+    background: blue;/* マウス選択時の背景色を指定する */
+    color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+input[type="radio"] + label {
+    background-color: lightskyblue;/* マウス選択時の背景色を指定する */
+    color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+label {
+    padding: 20px;
+    line-height: 20px;
+    cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+}
+
+
+.tab_content {
+  display: none;
+  padding: 1em 1em 0;
+}
+#tab1:checked ~ #tab1_content,
+#tab2:checked ~ #tab2_content {
+  display: block;
+}
+li {
+    padding-top: 30px;
+}
+.tab_content_description {
+    border:1px solid black;
+}
+.textarea {
+    display: flex;
+}
+.text {
+    flex-direction: row;
+}
+.blank-left {
+    margin-left: 50px;
+}
