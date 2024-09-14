@@ -1,5 +1,11 @@
 {
-    "name": "akahori-rice",
+    "name": "akahori01/akahori-rice",
     "description": "rice-site",
-    "require": { "php": "8.2.0" }
+    "require": {
+        "php": "^8.2",
+        "ext-mysqli": "*"
+    },
+    "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
+    }
 }
