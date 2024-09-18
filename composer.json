@@ -1,6 +1,7 @@
 {
     "name": "akahori01/akahori-rice",
     "description": "rice-site",
+    "version": "1.0.0",
     "require": {
         "php": "^8.2",
         "ext-mysqli": "*"
