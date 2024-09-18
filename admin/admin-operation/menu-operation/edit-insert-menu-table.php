@@ -26,7 +26,7 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
     $fairSessionId = $userModel->checkUserId();
     if(!$fairSessionId){
         $howToLogin->destroyCookieAndSession();
-        header('Location: ./../../../app/error.php');
+        header('Location: ./../../../public/error.php');
         exit();
     }
     $admin = $userModel->selectUserIv();
@@ -38,7 +38,7 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
 
 }else {
     $howToLogin->destroyCookieAndSession();
-    header('Location: ./../../../app/index.php');
+    header('Location: ./../../../public/index.php');
     exit();
 }
 

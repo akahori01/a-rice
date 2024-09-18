@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 session_cache_limiter('nocache');
 header('Content-Type: text/html; charset=UTF-8');
 header('X-XSS-Protection: 1; mode=block');
@@ -7,8 +7,8 @@ header("Cache-Control: no-cache");
 header("Pragma: no-cache");
 header("Expires: -1");
 session_start();
-require_once(__DIR__. '/../DB/LoginWay.php');
-require_once(__DIR__. '/../DB/UserModel.php');
+require_once(__DIR__. '/../../../DB/LoginWay.php');
+require_once(__DIR__. '/../../../DB/UserModel.php');
 
 $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $IPaddress = $_SERVER['REMOTE_ADDR'];
@@ -19,7 +19,7 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
     $fairSessionId = $userModel->checkUserId();
     if(!$fairSessionId){
         $howToLogin->destroyCookieAndSession();
-        header('Location: error.php');
+        header('Location: ./../../../public/error.php');
         exit();
     }
     $admin = $userModel->selectUserIv();
@@ -28,11 +28,13 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
         header('Location: error.php');
         exit();
     }
+
 }else {
     $howToLogin->destroyCookieAndSession();
-    header('Location: ./../app/index.php');
+    header('Location: ./../../../public/index.php');
     exit();
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -44,15 +46,8 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
     <title>Document</title>
 </head>
 <body>
-<a href="./../app/mypage.php">マイページに戻る</a>
-    <h1>管理者用トップページ</h1>
-    <ul>
-        <li>
-            <a href="./admin-operation/menu-operation/start-insertMenuTable.php">メニューの追加・削除</a>
-        </li>
-        <li>
-            <a href="./admin-operation/calendar-operation/holiday.php">休日の追加・削除</a>
-        </li>
-    </ul>
+<a href="./../../index.php">トップページに戻る</a>
+    <h2><a href="insert-admin-menu-table.php">新しく商品を追加する</a></h2>
+    <h2><a href="delete-menu-table.php">商品を削除する</a></h2>
 </body>
 </html>

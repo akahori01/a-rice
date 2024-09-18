@@ -350,7 +350,7 @@ class SignUp
             $this->update($id_on_data, $IPaddress, $url);
             return;
         } elseif (in_array($this->datas[self::SIGNUP_SECRET][self::SIGNUP_USER_ID], $databaseUserIdAll, true) || in_array($this->datas[self::SIGNUP_SECRET][self::SIGNUP_TEL], $databaseTelAll, true)){
-            header('Location: ../app/error.php');
+            header('Location: ../public/error.php');
             exit();
         } else{
             $this->insertSignUp($IPaddress, $url);

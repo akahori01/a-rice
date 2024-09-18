@@ -3,13 +3,13 @@
     <label for="menu-btn-check" class="menu-btn"><span></span></label>
     <div class="menu-content">
         <ul class="ddmenu">
-            <li><a href="../app/index.php"><img src="./../library/shopping.png" alt="買い物">商品の購入</a></li>
-            <li><a href="../app/mypage.php"><img src="./../library/acount.png" alt="アカウント">マイページ</a></li>
-            <li><a href="../app/company.php"><img src="./../library/company.png" alt="会社">会社情報</a></li>
+            <li><a href="../public/index.php"><img src="./../library/shopping.png" alt="買い物">商品の購入</a></li>
+            <li><a href="../public/mypage.php"><img src="./../library/acount.png" alt="アカウント">マイページ</a></li>
+            <li><a href="../public/company.php"><img src="./../library/company.png" alt="会社">会社情報</a></li>
             <li class="pulldown"><a class="setting" href="#"><img src="./../library/setting.png" alt="設定">設定</a>
             <ul class="setttings-pulldown">
-                <li><a href="../app/person-info-cfm.php"><img src="./../library/person-info.png" alt="個人情報">個人情報の確認・変更</a></li>
-                <li><a href="../app/order-history.php"><img src="./../library/order-history.png" alt="注文履歴">注文履歴</a></li>
+                <li><a href="../public/person-info-cfm.php"><img src="./../library/person-info.png" alt="個人情報">個人情報の確認・変更</a></li>
+                <li><a href="../public/order-history.php"><img src="./../library/order-history.png" alt="注文履歴">注文履歴</a></li>
                 <?php
                     $logoutNum = bin2hex(random_bytes(32));
                     $_SESSION['logout'] = $logoutNum;
@@ -19,7 +19,7 @@
                 </form>
             </ul>
             </li>
-            <li><a href="../app/inquiry.php"><img src="./../library/phone.png" alt="お問い合わせ">お問い合わせ</a></li>
+            <li><a href="../public/inquiry.php"><img src="./../library/phone.png" alt="お問い合わせ">お問い合わせ</a></li>
         </ul>
     </div>
 </div>
