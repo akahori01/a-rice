@@ -28,14 +28,6 @@ if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] ==
     $howToLogin->logout();
 } elseif (isset($_COOKIE['token']) && !isset($_SESSION['user_id'])){
     $howToLogin->autologin();
-} elseif(isset($_SESSION['user_id'])){
-    $userModel = new SelectUserModel($_SESSION[ConstApp::SIGNUP_USER_ID]);
-    $fairSessionId = $userModel->checkUserId();
-    if(!$fairSessionId){
-        $howToLogin->destroyCookieAndSession();
-        header('Location: error.php');
-        exit();
-    }
 }
 
 if (empty($_SESSION['message']['order'])){
