@@ -21,42 +21,50 @@ require_once(__DIR__. '/../configs/constClass.php');
 require_once(__DIR__. '/../configs/constDB.php');
 
 
-// $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-// $IPaddress = $_SERVER['REMOTE_ADDR'];
-// $howToLogin = new LoginWay($IPaddress, $url);
-// if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] === $_SESSION['logout']){
-//     $howToLogin->logout();
-// } elseif (isset($_COOKIE['token']) && !isset($_SESSION['user_id'])){
-//     $howToLogin->autologin();
-// }
+$url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$IPaddress = $_SERVER['REMOTE_ADDR'];
+$howToLogin = new LoginWay($IPaddress, $url);
+if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] === $_SESSION['logout']){
+    $howToLogin->logout();
+} elseif (isset($_COOKIE['token']) && !isset($_SESSION['user_id'])){
+    $howToLogin->autologin();
+} elseif(isset($_SESSION['user_id'])){
+    $userModel = new SelectUserModel($_SESSION[ConstApp::SIGNUP_USER_ID]);
+    $fairSessionId = $userModel->checkUserId();
+    if(!$fairSessionId){
+        $howToLogin->destroyCookieAndSession();
+        header('Location: error.php');
+        exit();
+    }
+}
 
-// if (empty($_SESSION['message']['order'])){
-//     if (isset($_SESSION['data']['order_count'])) {
-//         $counts = $_SESSION['data']['order_count'];
-//     }
-// }
+if (empty($_SESSION['message']['order'])){
+    if (isset($_SESSION['data']['order_count'])) {
+        $counts = $_SESSION['data']['order_count'];
+    }
+}
 
-// $menu = new MenuInstance();
-// $menus = $menu->moneyMenu();
+$menu = new MenuInstance();
+$menus = $menu->moneyMenu();
 
-// if (isset($_SESSION['data']['checkDay']))
-// {
-//     $sessionDay = $_SESSION['data']['checkDay'];
-// } else {
-//     $sessionDay = null;
-// }
-// $calendar = new Calendar($sessionDay);
-// $calendar->showCalendar();
+if (isset($_SESSION['data']['checkDay']))
+{
+    $sessionDay = $_SESSION['data']['checkDay'];
+} else {
+    $sessionDay = null;
+}
+$calendar = new Calendar($sessionDay);
+$calendar->showCalendar();
 
 
-// $randomId = bin2hex(random_bytes(32));
-// $_SESSION['index_token'] = $randomId;
+$randomId = bin2hex(random_bytes(32));
+$_SESSION['index_token'] = $randomId;
 
-// $_SESSION[ConstApp::SIGNUP_DATA] = [];
+$_SESSION[ConstApp::SIGNUP_DATA] = [];
 
-// if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGIN_MESSAGE])){
-//     $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
-// }
+if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGIN_MESSAGE])){
+    $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
+}
 
 
 ?>
