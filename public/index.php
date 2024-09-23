@@ -46,6 +46,7 @@ if (empty($_SESSION['message']['order'])){
 
 $menu = new MenuInstance();
 $menus = $menu->moneyMenu();
+$menus = isset($menus) ? $menus : [];
 
 if (isset($_SESSION['data']['checkDay']))
 {
@@ -99,6 +100,7 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
                 </ul>
             </div>
         <div class="input-field">
+            <?php if (!empty($menus)) : ?>
             <?php for ($i = 0; $i < count($menus); $i++): ?>
             <div class="container">
                 <form action="./menu-detail.php" method="GET">
@@ -128,6 +130,7 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
             </div>
             <?php $_SESSION['data']['menus'][] = $menus[$i] ?>
             <?php endfor ?>
+            <?php endif ?>
         </div>
         <p><a href="largelot-index.php">150kg以上のお米を一度に注文される方はこちら</a></p>
         <div class="message">
