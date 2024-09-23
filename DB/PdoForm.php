@@ -13,7 +13,7 @@ trait PdoForm
     public function connect()
     {
         // try {
-            $pdo = new PDO('mysql:us-cluster-east-01.k8s.cleardb.net;dbname=heroku_65df047e8aa26c8;charset=utf8mb4', 'bd0defb290d916', '5a2e514f');
+            $pdo = new PDO('mysql:host=us-cluster-east-01.k8s.cleardb.net;dbname=heroku_65df047e8aa26c8;charset=utf8mb4', 'bd0defb290d916', '5a2e514f');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $pdo->setAttribute(PDO::MYSQL_ATTR_MULTI_STATEMENTS, false);
