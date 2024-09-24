@@ -80,9 +80,9 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
 </head>
 <body>
     <?php if (isset($_SESSION[ConstApp::SIGNUP_USER_ID])): ?>
-        <header><?php require_once(__DIR__. '/inc/loginHeader.php') ?></header>
+        <header><?php require_once(__DIR__. '/../inc/loginHeader.php') ?></header>
     <?php else: ?>
-        <header><?php require_once(__DIR__. '/inc/notLoginHeader.php') ?></header>
+        <header><?php require_once(__DIR__. '/../inc/notLoginHeader.php') ?></header>
     <?php endif ?>
     <main>
         <div class="login-message">
@@ -181,9 +181,9 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
     <?php $_SESSION[ConstApp::SIGNUP_MESSAGE] = [] ?>
     </main>
     <?php if (isset($_SESSION['user_id'])): ?>
-        <footer><?php require_once(__DIR__. '/inc/loginFooter.php') ?></footer>
+        <footer><?php require_once(__DIR__. '/../inc/loginFooter.php') ?></footer>
     <?php else: ?>
-        <footer><?php require_once(__DIR__. '/inc/notLoginFooter.php') ?></footer>
+        <footer><?php require_once(__DIR__. '/../inc/notLoginFooter.php') ?></footer>
     <?php endif ?>
 </body>
 </html>
