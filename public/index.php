@@ -76,6 +76,11 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="./assets/index.css">
+    <link rel="stylesheet" href="./assets/notLoginHeader.css">
+    <link rel="stylesheet" href="./assets/loginHeader.css">
+    <link rel="stylesheet" href="./assets/footer.css">
+    <link rel="stylesheet" href="./assets/same.css">
+
     <title>商品購入ページ</title>
 </head>
 <body>
