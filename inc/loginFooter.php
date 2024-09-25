@@ -1,8 +1,8 @@
 <ul class="footer-mobile">
-    <li><a href="../index.php"><img src="./../library/shopping.png" alt="買い物">商品購入</a></li>
-    <li><a href="../mypage.php"><img src="./../library/acount.png" alt="アカウント">マイページ</a></li>
-    <li><a href="../order-history.php"><img src="./../library/order-history.png" alt="注文履歴">注文履歴</a></li>
-    <li><a href="../inquiry.php"><img src="./../library/phone.png" alt="お問い合わせ">お問い合わせ</a></li>
+    <li><a href="../index.php"><img src="/library/shopping.png" alt="買い物">商品購入</a></li>
+    <li><a href="../mypage.php"><img src="/library/acount.png" alt="アカウント">マイページ</a></li>
+    <li><a href="../order-history.php"><img src="/library/order-history.png" alt="注文履歴">注文履歴</a></li>
+    <li><a href="../inquiry.php"><img src="/library/phone.png" alt="お問い合わせ">お問い合わせ</a></li>
 </ul>
 
 <div class="footer-pc">

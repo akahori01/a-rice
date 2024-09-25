@@ -25,7 +25,7 @@ class InsertImage
         $this->imageType = preg_replace('/image\//', '', $this->imageType);
         $objDateTime = new DateTime('now');
         $newImageName = $objDateTime->format('Y.m.d.His'). '.'. $this->imageType;
-        $newImagePass = __DIR__. '/../library/'. $newImageName;
+        $newImagePass = '/library/'. $newImageName;
         return $newImagePass;
     }
 
