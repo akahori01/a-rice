@@ -55,6 +55,10 @@ $_SESSION['first_signup_token'] = $randomId;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/signUp.css">
+    <link rel="stylesheet" href="./assets/notLoginHeader.css">
+    <link rel="stylesheet" href="./assets/loginHeader.css">
+    <link rel="stylesheet" href="./assets/footer.css">
+    <link rel="stylesheet" href="./assets/same.css">
     <title>新規登録者専用ログインページ</title>
 </head>
 <body>

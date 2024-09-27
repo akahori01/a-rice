@@ -36,6 +36,10 @@ if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] ==
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/inquiry.css">
+    <link rel="stylesheet" href="./assets/notLoginHeader.css">
+    <link rel="stylesheet" href="./assets/loginHeader.css">
+    <link rel="stylesheet" href="./assets/footer.css">
+    <link rel="stylesheet" href="./assets/same.css">
     <title>お問い合わせ</title>
 </head>
 <body>

@@ -126,6 +126,10 @@ $_SESSION['order_cfm_token'] = $randomId;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/order-cfm.css">
+    <link rel="stylesheet" href="./assets/notLoginHeader.css">
+    <link rel="stylesheet" href="./assets/loginHeader.css">
+    <link rel="stylesheet" href="./assets/footer.css">
+    <link rel="stylesheet" href="./assets/same.css">
     <title>購入詳細画面</title>
 </head>
 <body>

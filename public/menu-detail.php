@@ -77,6 +77,10 @@ if (!isset($choiceMenu)){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/menu-detail.css">
+    <link rel="stylesheet" href="./assets/notLoginHeader.css">
+    <link rel="stylesheet" href="./assets/loginHeader.css">
+    <link rel="stylesheet" href="./assets/footer.css">
+    <link rel="stylesheet" href="./assets/same.css">
     <title>商品詳細画面</title>
 </head>
 <body>

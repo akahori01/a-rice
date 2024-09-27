@@ -1,8 +1,5 @@
 @charset "UTF-8";
-@import url("../../inc/notLoginHeader.css");
-@import url("../../inc/loginHeader.css");
-@import url("../../inc/footer.css");
-@import url("../../inc/same.css");
+
 
 .container p {
     text-align: center;

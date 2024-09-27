@@ -24,19 +24,19 @@ require_once(__DIR__. '/../configs/constDB.php');
 $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $IPaddress = $_SERVER['REMOTE_ADDR'];
 $howToLogin = new LoginWay($IPaddress, $url);
-// if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] === $_SESSION['logout']){
-//     $howToLogin->logout();
-// } elseif (isset($_COOKIE['token']) && !isset($_SESSION['user_id'])){
-//     $howToLogin->autologin();
-// } elseif(isset($_SESSION['user_id'])){
-//     $userModel = new SelectUserModel($_SESSION[ConstApp::SIGNUP_USER_ID]);
-//     $fairSessionId = $userModel->checkUserId();
-//     if(!$fairSessionId){
-//         $howToLogin->destroyCookieAndSession();
-//         header('Location: error.php');
-//         exit();
-//     }
-// }
+if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] === $_SESSION['logout']){
+    $howToLogin->logout();
+} elseif (isset($_COOKIE['token']) && !isset($_SESSION['user_id'])){
+    $howToLogin->autologin();
+} elseif(isset($_SESSION['user_id'])){
+    $userModel = new SelectUserModel($_SESSION[ConstApp::SIGNUP_USER_ID]);
+    $fairSessionId = $userModel->checkUserId();
+    if(!$fairSessionId){
+        $howToLogin->destroyCookieAndSession();
+        header('Location: error.php');
+        exit();
+    }
+}
 
 if (empty($_SESSION['message']['order'])){
     if (isset($_SESSION['data']['order_count'])) {
@@ -80,7 +80,6 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
     <link rel="stylesheet" href="./assets/loginHeader.css">
     <link rel="stylesheet" href="./assets/footer.css">
     <link rel="stylesheet" href="./assets/same.css">
-
     <title>商品購入ページ</title>
 </head>
 <body>
@@ -111,7 +110,7 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
                 <form action="./menu-detail.php" method="GET">
                     <div class="image">
                         <ul>
-                            <li><button type="submit" name="menu-detail" value="<?= $menus[$i]->getMenuId() ?>"><img src="<?php $menus[$i]->getImagePass() ?>" alt="no-image"></button></li>
+                            <li><button type="submit" name="menu-detail" value="<?= $menus[$i]->getMenuId() ?>"><img src="<?= $menus[$i]->getImagePass() ?>" alt="no-image"></button></li>
                         </ul>
                     </div>
                 </form>

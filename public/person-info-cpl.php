@@ -86,15 +86,9 @@ if (!empty($signup->getMessage())){
 }
 $userModel->selectId();
 $id_on_data = strval($userModel->getId());
-// var_dump($tel_on_data, $user_id_on_data, $password_on_data, $id_on_data);
 $signup->writeSignupDate($IPaddress, $url, $password_on_data, $id_on_data, $tel_on_data, $user_id_on_data);
-// $signup->againHideData();
-// $signup->update($_SESSION[ConstApp::SIGNUP_USER_ID]);
 
 $howToLogin->firstLogin($signup->setUserId());
-
-// header('Location: ./mypage.php');
-// exit();
 ?>
 
 <!DOCTYPE html>
@@ -104,6 +98,10 @@ $howToLogin->firstLogin($signup->setUserId());
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/person-info-cpl.css">
+    <link rel="stylesheet" href="./assets/notLoginHeader.css">
+    <link rel="stylesheet" href="./assets/loginHeader.css">
+    <link rel="stylesheet" href="./assets/footer.css">
+    <link rel="stylesheet" href="./assets/same.css">
     <title>個人情報変更完了画面</title>
 </head>
 <body>

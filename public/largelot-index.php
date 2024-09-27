@@ -83,6 +83,10 @@ $PriceRice30 = number_format($rice30). '円';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="./assets/largelot-index.css">
+    <link rel="stylesheet" href="./assets/notLoginHeader.css">
+    <link rel="stylesheet" href="./assets/loginHeader.css">
+    <link rel="stylesheet" href="./assets/footer.css">
+    <link rel="stylesheet" href="./assets/same.css">
     <script>
         function CalculationResult(){
             // let total = parseInt(document.getElementById('total').value) || 0;
