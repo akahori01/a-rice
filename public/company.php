@@ -126,7 +126,7 @@ $rice30 = number_format(ConstApp::PRICE_RICE_30). '円';
                         <li>10kg = <?= $rice10 ?></li>
                     </ul>
                     <p class="notes">※景品・贈答品は米袋代含む</p>
-                    <p style="color: red;">※15kgを購入の場合、13.5kgでのお届けになるので、ご了承願います</p>
+                    <p style="color: red;">※精米後、約1割ほど米ぬかになりますので、<br>実量は15kgを購入の場合、13.5kgでのお届けになるので、ご了承願います</p>
                     <p style="color: red;">※お客様からの消費税は頂いておりません</p>
                 </div>
             </div>
