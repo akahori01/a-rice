@@ -6,7 +6,7 @@ class Encrypt
 
     public function __construct()
     {
-        $this->key = file_get_contents(__DIR__. '/../admin/donot-touch/storage.key');
+        $this->key = file_get_contents('/admin/donot-touch/storage.key');
     }
 
     public function generationIv()
