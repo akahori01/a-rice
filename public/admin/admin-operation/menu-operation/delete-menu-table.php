@@ -7,10 +7,10 @@ header("Cache-Control: no-cache");
 header("Pragma: no-cache");
 header("Expires: -1");
 session_start();
-require_once(__DIR__. '/../../../DB/LoginWay.php');
-require_once(__DIR__. '/../../../DB/UserModel.php');
-require_once(__DIR__. '/../../../instance/menu-instance.php');
-require_once(__DIR__. '/../../../class/MenuMoney.php');
+require_once(__DIR__. '/../../../../DB/LoginWay.php');
+require_once(__DIR__. '/../../../../DB/UserModel.php');
+require_once(__DIR__. '/../../../../instance/menu-instance.php');
+require_once(__DIR__. '/../../../../class/MenuMoney.php');
 
 
 $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
