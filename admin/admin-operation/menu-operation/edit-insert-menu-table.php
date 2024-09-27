@@ -98,6 +98,7 @@ switch ($_FILES['image']['error'])
 if ($_SESSION['moneyMessage'] !== [] || $_SESSION['moneyMessageImage'] !== [])
 {
     header('Location: insert-admin-menu-table.php');
+    exit();
 } else{
     $_SESSION['data'] = $menu->getDatas();
     $databaseMenu = new MenuInstance();

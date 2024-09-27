@@ -58,7 +58,7 @@ $_SESSION[ConstApp::SIGNUP_MESSAGE] = $signUp->getMessage();
 
 
 if (!empty($signUp->getMessage())){
-    header('Location: ../public/first-signup.php');
+    header('Location: first-signup.php');
     exit();
 }
 
