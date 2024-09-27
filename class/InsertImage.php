@@ -31,7 +31,7 @@ class InsertImage
 
     public function moveImage()
     {
-        file_put_contents($this->newImagePass, $this->imageData);
+        file_put_contents($_SERVER['DOCUMENT_ROOT']. '/'. $this->newImagePass, $this->imageData);
     }
     public function getImagePass()
     {
