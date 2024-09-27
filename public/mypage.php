@@ -106,7 +106,7 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
         </div>
         <?php if (isset($admin) && $admin === true): ?>
             <div class="admin-page">
-                <a href="./../admin/index.php">商品の追加・削除 、 又は休日の追加・削除はこちら</a>
+                <a href="./admin/index.php">商品の追加・削除 、 又は休日の追加・削除はこちら</a>
             </div>
         <?php endif ?>
         <div class="purchase-history">

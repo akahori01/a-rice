@@ -44,7 +44,7 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
     <title>Document</title>
 </head>
 <body>
-<a href="./../public/mypage.php">マイページに戻る</a>
+<a href="../mypage.php">マイページに戻る</a>
     <h1>管理者用トップページ</h1>
     <ul>
         <li>
