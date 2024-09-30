@@ -140,7 +140,7 @@ array_push($menus, $menu);
                     <?php if (isset($menu->datas['menu_image_pass'])): ?>
                     <li><img src="<?= '../../../'. $menu->datas['menu_image_pass'] ?>" alt=""></li>
                     <?php else: ?>
-                    <li><a class="box-link" href="display-image.php" target="blank"><img src="<?= isset($imagePass) ? $imagePass : $image->getImageName() ?>" alt=""></a></li>
+                    <li><a class="box-link" href="display-image.php" target="blank"><img src="<?= isset($imagePass) ? $imagePass : $image->getImagePass() ?>" alt=""></a></li>
                     <?php endif ?>
                 </ul>
             </div>
