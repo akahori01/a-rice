@@ -81,7 +81,7 @@ class ConstApp
     const MENU_HEAD = '玉';
     const DEFAULT_IMAGE_NAME = 'MyLogo.jpeg';
     const DEFAULT_IMAGE_TYPE = 'image/jpeg';
-    const DEFAULT_IMAGE_PASS = '../../../library/MyLogo.jpeg';
+    const DEFAULT_IMAGE_PASS = 'library/MyLogo.jpeg';
     const DEFAULT_IMAGE_SIZE = 5800;
 
     // Calendar.php
