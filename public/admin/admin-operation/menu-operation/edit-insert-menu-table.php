@@ -138,10 +138,9 @@ array_push($menus, $menu);
             <div class="frame">
                 <ul>
                     <?php if (isset($menu->datas['menu_image_pass'])): ?>
-                        <!-- ↓相対パスのみじゃないから表示されないよ -->
-                    <li><img src="<?= $menu->datas['menu_image_pass'] ?>" alt=""></li>
+                    <li><img src="<?= '../../../'. $menu->datas['menu_image_pass'] ?>" alt=""></li>
                     <?php else: ?>
-                    <li><a class="box-link" href="display-image.php" target="blank"><?= isset($imageName) ? $imageName : $image->getImageName() ?></a></li>
+                    <li><a class="box-link" href="display-image.php" target="blank"><img src="<?= isset($imageName) ? $imageName : $image->getImageName() ?>" alt=""></a></li>
                     <?php endif ?>
                 </ul>
             </div>
