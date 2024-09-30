@@ -19,19 +19,19 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
     $fairSessionId = $userModel->checkUserId();
     if(!$fairSessionId){
         $howToLogin->destroyCookieAndSession();
-        header('Location: ./../../../public/error.php');
+        header('Location: ./../../../error.php');
         exit();
     }
     $admin = $userModel->selectUserIv();
     if (!isset($admin) || $admin === false){
         $howToLogin->destroyCookieAndSession();
-        header('Location: error.php');
+        header('Location: ./../../../error.php');
         exit();
     }
 
 }else {
     $howToLogin->destroyCookieAndSession();
-    header('Location: ./../../../public/index.php');
+    header('Location: ./../../../index.php');
     exit();
 }
 ?>
