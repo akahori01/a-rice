@@ -26,8 +26,8 @@ class ConstClass
     const MIME4 = 'image/gif';
     const MIMES = [self::MIME1, self::MIME2, self::MIME3, self::MIME4];
 
-    // 3000000B = 3000KB = 3MB
-    const MAX_FILE_SIZE = '3000000';
+    // 4000000B = 4000KB = 4MB
+    const MAX_FILE_SIZE = '4000000';
 
     // Message.php
     const INPUT_REQUIRED = '入力必須です';
