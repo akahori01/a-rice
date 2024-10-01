@@ -51,7 +51,7 @@ class ImageExtension
     {
         switch ($this->imageError)
         {
-            case UPLOAD_ERR_OK:
+            case 0:
             if ($this->existImage !== true)
             {
                 $this->message->pushEmpty(self::MENU_IMTAGE);
