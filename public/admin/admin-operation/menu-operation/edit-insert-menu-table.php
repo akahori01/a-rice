@@ -93,7 +93,8 @@ switch ($_FILES['image']['error'])
         $image->setMessage();
         $_SESSION['moneyMessageImage'] = $image->getMessage();
         $_SESSION['image'] = $_FILES['image'];
-        $_SESSION['imageData'] = file_get_contents($_FILES['image']['tmp_name']);
+        var_dump($_FILES['image']['tmp_name']);
+        // $_SESSION['imageData'] = file_get_contents($_FILES['image']['tmp_name']);
 }
 if ($_SESSION['moneyMessage'] !== [] || $_SESSION['moneyMessageImage'] !== [])
 {
@@ -140,7 +141,8 @@ array_push($menus, $menu);
                     <?php if (isset($menu->datas['menu_image_pass'])): ?>
                     <li><img src="<?= '../../../'. $menu->datas['menu_image_pass'] ?>" alt=""></li>
                     <?php else: ?>
-                    <li><a class="box-link" href="display-image.php" target="blank"><img src="<?= isset($imagePass) ? $imagePass : $image->getImagePass() ?>" alt=""></a></li>
+                    <li><a class="box-link" href="display-image.php" target="blank"><img src="insert-image.php" alt=""></a></li>
+                    <!-- <img src="<?= isset($imagePass) ? $imagePass : $image->getImagePass() ?>" alt=""> -->
                     <?php endif ?>
                 </ul>
             </div>
@@ -172,7 +174,7 @@ array_push($menus, $menu);
         <div class="contai">
             <div class="frame">
                 <ul>
-                    <li><a class="box-link" href="display-image.php" target="blank"><?= isset($imageName) ? $imageName : $image->getImageName() ?></a></li>
+                    <li><a class="box-link" href="display-image.php" target="blank"><?= isset($imagePass) ? $imageName : $image->getImagePass() ?></a></li>
                 </ul>
             </div>
             <div class="char">
