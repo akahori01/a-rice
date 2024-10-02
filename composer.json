@@ -9,5 +9,11 @@
     },
     "require-dev": {
         "heroku/heroku-buildpack-php": "*"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "echo 'upload_max_filesize = 7M' > .heroku/php/etc/php/php.ini.d/upload.ini",
+            "echo 'post_max_size = 10M' >> .heroku/php/etc/php/php.ini.d/upload.ini"
+        ]
     }
 }
