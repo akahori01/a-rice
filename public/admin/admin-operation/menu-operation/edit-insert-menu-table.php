@@ -93,15 +93,17 @@ switch ($_FILES['image']['error'])
         $image->setMessage();
         $_SESSION['moneyMessageImage'] = $image->getMessage();
         $_SESSION['image'] = $_FILES['image'];
-        var_dump($_FILES['image']['tmp_name']);
-        var_dump($_FILES['image']['error']);
-        var_dump($_SESSION['moneyMessageImage']);
-        // $_SESSION['imageData'] = file_get_contents($_FILES['image']['tmp_name']);
+        if ($_SESSION['moneyMessageImage'] !== []){
+            header('Location: insert-admin-menu-table.php');
+            exit();
+        }else {
+            $_SESSION['imageData'] = file_get_contents($_FILES['image']['tmp_name']);
+        }
 }
 if ($_SESSION['moneyMessage'] !== [] || $_SESSION['moneyMessageImage'] !== [])
 {
-    // header('Location: insert-admin-menu-table.php');
-    // exit();
+    header('Location: insert-admin-menu-table.php');
+    exit();
 } else{
     $_SESSION['data'] = $menu->getDatas();
     $databaseMenu = new MenuInstance();
