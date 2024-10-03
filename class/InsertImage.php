@@ -31,7 +31,11 @@ class InsertImage
 
     public function moveImage()
     {
-        file_put_contents(__DIR__. '/../public/'. $this->newImagePass, $this->imageData);
+        // file_put_contents(__DIR__. '/../public/'. $this->newImagePass, $this->imageData);
+        $filePath = __DIR__ . '/../public/' . $this->newImagePass;
+        if (file_put_contents($filePath, $this->imageData) === false) {
+            throw new Exception("Failed to write file to $filePath");
+        }
     }
     public function getImagePass()
     {
