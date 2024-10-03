@@ -101,7 +101,7 @@ if (!isset($choiceMenu)){
             <div class="container">
                 <div class="image">
                     <ul>
-                        <li><img src="<?php $choiceMenu->getImagePass() ?>" alt="no-image"></li>
+                        <li><img src="<?= $choiceMenu->getImagePass() ?>" alt="no-image"></li>
                     </ul>
                 </div>
                 <div class="char">
