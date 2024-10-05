@@ -106,11 +106,13 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
         <div class="input-field">
             <?php if (!empty($menus)) : ?>
             <?php for ($i = 0; $i < count($menus); $i++): ?>
-            <div class="container">
+                <?php $_SESSION['image']['type'] = $menus[$i]->getMimeType() ?>
+                <?php $_SESSION['imageData'] = $menus[$i]->getImageData() ?>
+                <div class="container">
                 <form action="./menu-detail.php" method="GET">
                     <div class="image">
                         <ul>
-                            <li><button type="submit" name="menu-detail" value="<?= $menus[$i]->getMenuId() ?>"><img src="<?= $menus[$i]->getImagePass() ?>" alt="no-image"></button></li>
+                            <li><button type="submit" name="menu-detail" value="<?= $menus[$i]->getMenuId() ?>"><img src="image-output.php" alt="no-image"></button></li>
                         </ul>
                     </div>
                 </form>
@@ -133,6 +135,8 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
                 </div>
             </div>
             <?php $_SESSION['data']['menus'][] = $menus[$i] ?>
+            <?php $_SESSION['image']['type'] = [] ?>
+            <?php $_SESSION['imageData'] = [] ?>
             <?php endfor ?>
             <?php endif ?>
         </div>

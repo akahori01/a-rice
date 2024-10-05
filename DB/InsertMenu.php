@@ -16,12 +16,12 @@ class InsertMenu
 
     use PdoForm;
 
-    public function insertMenuTable(array $datas, string $imagePass)
+    public function insertMenuTable(array $datas, string $imagePass, string $imageData, string $mimeType)
     {
         $pdo = self::connect();
         $statement = $pdo->prepare(
-            "INSERT INTO menu_info (business_set, menu_image_pass, menu_name, menu_cost, menu_weight, menu_category, menu_unit, comment_top, comment_bottom, notes, created_at, updated_at)
-            VALUES(:businessSet, :menuImagePass, :menuName, :menuCost, :menuWeight, :menuCategory, :menuUnit, :commentTop, :commentBottom, :notes, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)"
+            "INSERT INTO menu_info (business_set, menu_image_pass, menu_image_data, image_mime_type, menu_name, menu_cost, menu_weight, menu_category, menu_unit, comment_top, comment_bottom, notes, created_at, updated_at)
+            VALUES(:businessSet, :menuImagePass, :menuImageData, :imageMimeType, :menuName, :menuCost, :menuWeight, :menuCategory, :menuUnit, :commentTop, :commentBottom, :notes, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)"
         );
         foreach ($datas as $key => $value)
         {
@@ -57,6 +57,8 @@ class InsertMenu
             }
         }
         $statement->bindValue(':menuImagePass', $imagePass, PDO::PARAM_STR);
+        $statement->bindValue(':menuImageData', $imageData, PDO::PARAM_LOB);
+        $statement->bindValue(':imageMimeType', $mimeType, PDO::PARAM_STR);
         $statement->execute();
     }
 }

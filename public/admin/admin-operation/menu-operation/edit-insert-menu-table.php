@@ -93,6 +93,7 @@ switch ($_FILES['image']['error'])
         $image->setMessage();
         $_SESSION['moneyMessageImage'] = $image->getMessage();
         $_SESSION['image'] = $_FILES['image'];
+        $_SESSION['image']['type'] = $image->getImageMimeType();
         if ($_SESSION['moneyMessageImage'] !== []){
             header('Location: insert-admin-menu-table.php');
             exit();

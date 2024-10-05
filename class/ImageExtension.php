@@ -24,6 +24,7 @@ class ImageExtension
     public $existImage;
     public $fileExtension;
     public $fileSize;
+    public $mime;
 
     public function __construct($image)
     {
@@ -42,7 +43,8 @@ class ImageExtension
         $this->existImage = $this->check->emptyImage($this->imagePass);
         if ($this->existImage === true)
         {
-            $this->fileExtension = $this->check->extensionType($this->imageType, $this->imagePass);
+            $this->mime = $this->check->extensionType($this->imageType, $this->imagePass);
+            $this->fileExtension = ($this->mime === false) ? false : (in_array($this->mime, ConstClass::MIMES, true));
             $this->fileSize = $this->check->fileSize($this->imageSize);
         }
     }
@@ -104,5 +106,9 @@ class ImageExtension
     public function getImageSize()
     {
         return $this->imageSize;
+    }
+    public function getImageMimeType()
+    {
+        return $this->mime;
     }
 }

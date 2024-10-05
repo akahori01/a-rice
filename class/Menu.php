@@ -275,6 +275,16 @@ class Menu
         return $this->datas['menu_image_pass'];
     }
 
+    public function getImageData()
+    {
+        return $this->datas['menu_image_data'];
+    }
+
+    public function getMimeType()
+    {
+        return $this->datas['image_mime_type'];
+    }
+
     public function getTel()
     {
         $tel = self::telFormat($this->datas['user_tel']);

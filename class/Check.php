@@ -122,7 +122,7 @@ class Check
         finfo_close($f_info);
         $mime = strtolower($mime);
         if ($fileType === $mime){
-            return (in_array($mime, self::MIMES, true));
+            return $mime;
         } else {
             return false;
         }
