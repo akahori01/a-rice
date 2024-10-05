@@ -50,4 +50,4 @@ switch ($_SESSION['image']['type'])
         header('Content-type: image/gif');
         break;
 }
-print_r($_SESSION['imageData']);
+echo($_SESSION['imageData']);
