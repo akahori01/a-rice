@@ -112,7 +112,7 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
                 <form action="./menu-detail.php" method="GET">
                     <div class="image">
                         <ul>
-                            <li><button type="submit" name="menu-detail" value="<?= $menus[$i]->getMenuId() ?>"><img src="image-output.php" alt="no-image"></button></li>
+                            <li><button type="submit" name="menu-detail" value="<?= $menus[$i]->getMenuId() ?>"><?php readfile('image-output.php') ?></button></li>
                         </ul>
                     </div>
                 </form>
