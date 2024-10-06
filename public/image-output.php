@@ -34,6 +34,7 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
 //     header('Location: index.php');
 //     exit();
 // }
+$i = 0;
 
 if (isset($_GET['id'])){
     echo 'yes';
@@ -45,12 +46,12 @@ if (preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1){
 }else {
     echo 'no1';
 }
-if (isset($_SESSION['image'][$_GET['id']])){
+if (isset($_SESSION['image'][$i])){
     echo 'yes2';
 }else {
     echo 'no2';
 }
-if ($_GET['id'] === $_SESSION['image'][$_GET['id']]){
+if ($_GET['id'] === $_SESSION['image'][$i]){
     echo 'yes3';
 }else {
     echo 'no3';
