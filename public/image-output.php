@@ -35,6 +35,28 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
 //     exit();
 // }
 
+if (isset($_GET['id'])){
+    echo 'yes';
+}else {
+    echo 'no';
+}
+if (preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1){
+    echo 'yes1';
+}else {
+    echo 'no1';
+}
+if (isset($_SESSION['image'][$_GET['id']])){
+    echo 'yes2';
+}else {
+    echo 'no2';
+}
+if ($_GET['id'] === $_SESSION['image'][$_GET['id']]){
+    echo 'yes3';
+}else {
+    echo 'no3';
+}
+
+
 if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isset($_SESSION['image'][$_GET['id']]) && $_GET['id'] === $_SESSION['image'][$_GET['id']]) {
     $image = $_SESSION['image'][$_GET['id']];
 
