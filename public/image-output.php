@@ -10,36 +10,55 @@ session_start();
 require_once(__DIR__. '/../DB/LoginWay.php');
 require_once(__DIR__. '/../DB/UserModel.php');
 
-// Debugging: Check if image data is present in session
-if (!isset($_SESSION['imageData'])) {
-    echo 'No image data found in session';
+$url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$IPaddress = $_SERVER['REMOTE_ADDR'];
+$howToLogin = new LoginWay($IPaddress, $url);
+
+if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
+    $userModel = new SelectUserModel($_SESSION[ConstApp::SIGNUP_USER_ID]);
+    $fairSessionId = $userModel->checkUserId();
+    if(!$fairSessionId){
+        $howToLogin->destroyCookieAndSession();
+        header('Location: error.php');
+        exit();
+    }
+    $admin = $userModel->selectUserIv();
+    if (!isset($admin) || $admin === false){
+        $howToLogin->destroyCookieAndSession();
+        header('Location: error.php');
+        exit();
+    }
+
+}else {
+    $howToLogin->destroyCookieAndSession();
+    header('Location: index.php');
     exit();
 }
 
-// Content-Type based on image type
-switch ($_SESSION['image']['type'])
-{
-    case 'image/jpeg':
-    case 'image/jpg':  // Combine both cases
-        header('Content-type: image/jpeg');
-        break;
-    case 'image/png':
-        header('Content-type: image/png');
-        break;
-    case 'image/gif':
-        header('Content-type: image/gif');
-        break;
-    default:
-        header('Content-type: image/png');
-        echo 'Unsupported image type';
-        exit();
-}
+if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isset($_SESSION['image'][$_GET['id']]) && $_GET['id'] === $_SESSION['image'][$_GET['id']]) {
+    $image = $_SESSION['image'][$_GET['id']];
 
-// Output image data (check if it's base64 encoded)
-if (base64_decode($_SESSION['imageData'], true) !== false) {
-    // If it's base64 encoded
-    echo base64_decode($_SESSION['imageData']);
+    // 画像のMIMEタイプを設定
+    switch ($image['type'])
+    {
+        case 'image/jpg':
+        case 'image/jpeg':
+            header('Content-type: image/jpeg');
+            break;
+        case 'image/png':
+            header('Content-type: image/png');
+            break;
+        case 'image/gif':
+            header('Content-type: image/gif');
+            break;
+        default:
+            header('Location: error.php');
+            exit();
+    }
+
+    // 画像データを出力
+    echo $image['data'];
 } else {
-    // If it's raw binary data
-    echo $_SESSION['imageData'];
+    // 画像が存在しない場合の処理
+    echo '';
 }
