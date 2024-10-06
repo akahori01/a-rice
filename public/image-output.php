@@ -30,8 +30,9 @@ switch ($_SESSION['image']['type'])
         header('Content-type: image/gif');
         break;
     default:
-        echo 'Unsupported image type';
-        exit();
+        header('Content-type: image/png');
+        // echo 'Unsupported image type';
+        // exit();
 }
 
 // Output image data (check if it's base64 encoded)
