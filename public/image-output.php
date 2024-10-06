@@ -15,7 +15,7 @@ if (!isset($_SESSION['imageData'])) {
     echo 'No image data found in session';
     exit();
 }
-
+var_dump($_SESSION['image']['type']);
 // Content-Type based on image type
 switch ($_SESSION['image']['type'])
 {
@@ -31,8 +31,8 @@ switch ($_SESSION['image']['type'])
         break;
     default:
         header('Content-type: image/png');
-        // echo 'Unsupported image type';
-        // exit();
+        echo 'Unsupported image type';
+        exit();
 }
 
 // Output image data (check if it's base64 encoded)
