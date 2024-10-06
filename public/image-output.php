@@ -51,7 +51,7 @@ if (isset($_SESSION['image'][$i])){
 }else {
     echo 'no2';
 }
-if ($_GET['id'] === $_SESSION['image'][$i]){
+if ($_GET['id'] === $i){
     echo 'yes3';
 }else {
     echo 'no3';
