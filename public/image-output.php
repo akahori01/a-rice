@@ -14,26 +14,26 @@ $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST']
 $IPaddress = $_SERVER['REMOTE_ADDR'];
 $howToLogin = new LoginWay($IPaddress, $url);
 
-if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
-    $userModel = new SelectUserModel($_SESSION[ConstApp::SIGNUP_USER_ID]);
-    $fairSessionId = $userModel->checkUserId();
-    if(!$fairSessionId){
-        $howToLogin->destroyCookieAndSession();
-        header('Location: error.php');
-        exit();
-    }
-    $admin = $userModel->selectUserIv();
-    if (!isset($admin) || $admin === false){
-        $howToLogin->destroyCookieAndSession();
-        header('Location: error.php');
-        exit();
-    }
+// if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
+//     $userModel = new SelectUserModel($_SESSION[ConstApp::SIGNUP_USER_ID]);
+//     $fairSessionId = $userModel->checkUserId();
+//     if(!$fairSessionId){
+//         $howToLogin->destroyCookieAndSession();
+//         header('Location: error.php');
+//         exit();
+//     }
+//     $admin = $userModel->selectUserIv();
+//     if (!isset($admin) || $admin === false){
+//         $howToLogin->destroyCookieAndSession();
+//         header('Location: error.php');
+//         exit();
+//     }
 
-}else {
-    $howToLogin->destroyCookieAndSession();
-    header('Location: index.php');
-    exit();
-}
+// }else {
+//     $howToLogin->destroyCookieAndSession();
+//     header('Location: index.php');
+//     exit();
+// }
 
 switch ($_SESSION['image']['type'])
 {

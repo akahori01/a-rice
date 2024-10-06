@@ -108,8 +108,6 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
             <?php for ($i = 0; $i < count($menus); $i++): ?>
                 <?php $_SESSION['image']['type'] = $menus[$i]->getMimeType() ?>
                 <?php $_SESSION['imageData'] = $menus[$i]->getImageData() ?>
-                <?php var_dump($_SESSION['image']['type']) ?>
-                <?php var_dump($_SESSION['imageData']) ?>
                 <div class="container">
                 <form action="./menu-detail.php" method="GET">
                     <div class="image">
