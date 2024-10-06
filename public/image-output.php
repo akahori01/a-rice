@@ -15,7 +15,7 @@ require_once(__DIR__. '/../DB/UserModel.php');
 //     echo 'No image data found in session';
 //     exit();
 // }
-var_dump($_SESSION['image']['type']);
+var_dump($_SESSION['imageData']);
 // Content-Type based on image type
 // switch ($_SESSION['image']['type'])
 // {
