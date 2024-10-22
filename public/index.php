@@ -138,7 +138,7 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
                     </ul>
                 </div>
             </div>
-            <?php var_dump($_SESSION['imgae']) ?>
+            <?php var_dump($_SESSION['image']) ?>
             <?php $_SESSION['data']['menus'][] = $menus[$i] ?>
             <?php endfor ?>
             <?php endif ?>
