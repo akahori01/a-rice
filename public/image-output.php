@@ -34,6 +34,9 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
 //     header('Location: index.php');
 //     exit();
 // }
+
+var_dump($_SESSION);
+
 $i = 0;
 
 if (isset($_GET['id'])){
@@ -56,7 +59,6 @@ if ($_GET['id'] == $i){
 }else {
     echo 'no3';
 }
-var_dump($_SESSION);
 
 if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isset($_SESSION['image'][$_GET['id']]) && $_GET['id'] === $_SESSION['image'][$_GET['id']]) {
     $image = $_SESSION['image'][$_GET['id']];
