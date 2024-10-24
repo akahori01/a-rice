@@ -1,13 +1,11 @@
 <?php declare(strict_types=1);
-
-
+session_cache_limiter('nocache');
 header('Content-Type: text/html; charset=UTF-8');
 header('X-XSS-Protection: 1; mode=block');
 header('X-Frame-Options: DENY');
 header("Cache-Control: no-cache");
 header("Pragma: no-cache");
 header("Expires: -1");
-session_cache_limiter('nocache');
 session_start();
 
 require_once(__DIR__. '/../DB/LoginWay.php');
