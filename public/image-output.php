@@ -56,7 +56,7 @@ if ($_GET['id'] == $i){
 }else {
     echo 'no3';
 }
-var_dump($_SESSION['image']);
+var_dump($_SESSION);
 
 if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isset($_SESSION['image'][$_GET['id']]) && $_GET['id'] === $_SESSION['image'][$_GET['id']]) {
     $image = $_SESSION['image'][$_GET['id']];
