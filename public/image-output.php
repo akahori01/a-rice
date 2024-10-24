@@ -35,7 +35,10 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
 //     exit();
 // }
 
-var_dump($_SESSION);
+
+var_dump(session_id()); // セッションIDを確認
+var_dump($_SESSION); // セッションデータを確認
+var_dump($_COOKIE);
 
 $i = 0;
 
