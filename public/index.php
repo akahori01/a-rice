@@ -87,11 +87,6 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
         <header><?php require_once(__DIR__. '/../inc/notLoginHeader.php') ?></header>
     <?php endif ?>
     <main>
-        <?php
-            var_dump(session_id()); // セッションIDを確認
-            var_dump($_SESSION); // セッションデータを確認
-            var_dump($_COOKIE);
-        ?>
         <div class="login-message">
             <p><?= isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && !empty($_SESSION[ConstApp::LOGIN_MESSAGE]) ? $_SESSION[ConstApp::LOGIN_MESSAGE] :'' ?></p>
         </div>
