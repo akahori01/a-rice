@@ -14,7 +14,7 @@ $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST']
 $IPaddress = $_SERVER['REMOTE_ADDR'];
 $howToLogin = new LoginWay($IPaddress, $url);
 
-if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
+if(isset($_SESSION['user_id'])){
     $userModel = new SelectUserModel($_SESSION[ConstApp::SIGNUP_USER_ID]);
     $fairSessionId = $userModel->checkUserId();
     if(!$fairSessionId){
@@ -22,48 +22,9 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
         header('Location: error.php');
         exit();
     }
-    $admin = $userModel->selectUserIv();
-    if (!isset($admin) || $admin === false){
-        $howToLogin->destroyCookieAndSession();
-        header('Location: error.php');
-        exit();
-    }
-}
-//else {
-//     $howToLogin->destroyCookieAndSession();
-//     header('Location: index.php');
-//     exit();
-// }
-
-
-// var_dump(session_id()); // セッションIDを確認
-// var_dump($_SESSION); // セッションデータを確認
-// var_dump($_COOKIE);
-
-$i = 0;
-
-if (isset($_GET['id'])){
-    echo 'yes';
-}else {
-    echo 'no';
-}
-if (preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1){
-    echo 'yes1';
-}else {
-    echo 'no1';
-}
-if (isset($_SESSION['image'][$i])){
-    echo 'yes2';
-}else {
-    echo 'no2';
-}
-if ($_GET['id'] == $i){
-    echo 'yes3';
-}else {
-    echo 'no3';
 }
 
-if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isset($_SESSION['image'][$_GET['id']]) && $_GET['id'] === $_SESSION['image'][$_GET['id']]) {
+if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isset($_SESSION['image'][$_GET['id']])) {
     $image = $_SESSION['image'][$_GET['id']];
 
     // 画像のMIMEタイプを設定
@@ -90,3 +51,20 @@ if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isse
     // 画像が存在しない場合の処理
     echo '';
 }
+
+// switch ($_SESSION['image']['type'])
+// {
+//     case 'image/jpeg':
+//         header('Content-type: image/jpeg');
+//         break;
+//     case 'image/jpg':
+//         header('Content-type: image/jpg');
+//         break;
+//     case 'image/png':
+//         header('Content-type: image/png');
+//         break;
+//     case 'image/gif':
+//         header('Content-type: image/gif');
+//         break;
+// }
+// print_r($_SESSION['image']['data']);

@@ -1,4 +1,6 @@
-    <ul class="footer-mobile">
+<!-- サーバー用 -->
+
+<ul class="footer-mobile">
     <li><a href="../index.php"><img src="/library/shopping.png" alt="買い物">商品購入</a></li>
     <li><a href="../login.php"><img src="/library/login.png" alt="ログイン">ログイン</a></li>
     <li><a href="../company.php"><img src="/library/company.png" alt="会社">会社情報</a></li>
@@ -10,3 +12,19 @@
         <a href="">URLを入れる</a>
     </p>
 </div>
+
+
+<!-- ローカル用 -->
+<!--
+<ul class="footer-mobile">
+    <li><a href="../public/index.php"><img src="../public/library/shopping.png" alt="買い物">商品購入</a></li>
+    <li><a href="../public/login.php"><img src="../public/library/login.png" alt="ログイン">ログイン</a></li>
+    <li><a href="../public/company.php"><img src="../public/library/company.png" alt="会社">会社情報</a></li>
+    <li><a href="../public/inquiry.php"><img src="../public/library/phone.png" alt="お問い合わせ">お問い合わせ</a></li>
+</ul>
+<div class="footer-pc">
+    <h2>赤堀さんちのコシヒカリのInstagram</h2>
+    <p>最新情報をInstagramにて配信しています
+        <a href="">URLを入れる</a>
+    </p>
+</div> -->

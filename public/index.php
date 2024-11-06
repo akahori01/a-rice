@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
-session_cache_limiter('nocache');
 header('Content-Type: text/html; charset=UTF-8');
 header('X-XSS-Protection: 1; mode=block');
 header('X-Frame-Options: DENY');
 header("Cache-Control: no-cache");
 header("Pragma: no-cache");
 header("Expires: -1");
+session_cache_limiter('nocache');
 session_start();
 
 require_once(__DIR__. '/../DB/LoginWay.php');
@@ -141,7 +141,6 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
             <?php endif ?>
         </div>
         <p><a href="largelot-index.php">150kg以上のお米を一度に注文される方はこちら</a></p>
-        <img src="image-output.php?id=0" alt="no-image">
         <div class="message">
                 <p style="color: red;"><?= isset($_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::ORDER]) ? $_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::ORDER] : '' ?></p>
         </div>

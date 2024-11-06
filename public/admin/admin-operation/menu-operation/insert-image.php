@@ -37,11 +37,9 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
 
 switch ($_SESSION['image']['type'])
 {
+    case 'image/jpg':
     case 'image/jpeg':
         header('Content-type: image/jpeg');
-        break;
-    case 'image/jpg':
-        header('Content-type: image/jpg');
         break;
     case 'image/png':
         header('Content-type: image/png');
@@ -49,5 +47,8 @@ switch ($_SESSION['image']['type'])
     case 'image/gif':
         header('Content-type: image/gif');
         break;
+    default:
+        header('Location: ./../../../error.php');
+        exit();
 }
 print_r($_SESSION['imageData']);
