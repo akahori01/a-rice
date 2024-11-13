@@ -45,6 +45,6 @@ $menu->convertSaveMenuDatabase();
 $image = new InsertImage($_SESSION['image']['type'], $_SESSION['image']['tmp_name']);
 $image->insertLibrary();
 $insert = new InsertMenu();
-$insert->insertMenuTable($menu->getDatas(), $image->getImagePass(), $_SESSION['imageData'], $_SESSION['image']['type']);
+$insert->insertMenuTable($menu->getDatas(), $image->getImagePass(), $_SESSION['image']['data'], $_SESSION['image']['type']);
 header('Location: end-insertMenuTable.php');
 return;

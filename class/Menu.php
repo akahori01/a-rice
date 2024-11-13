@@ -285,6 +285,11 @@ class Menu
         return $this->datas['image_mime_type'];
     }
 
+    public function getUpdated_at()
+    {
+        return $this->datas['updated_at'];
+    }
+
     public function getTel()
     {
         $tel = self::telFormat($this->datas['user_tel']);

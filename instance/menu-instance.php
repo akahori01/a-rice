@@ -20,8 +20,6 @@ class MenuInstance
         $this->menu->menuMoneyAll();
         $menus = $this->menu->getMoneyAll();
         foreach ($menus as $menu){
-            unset($menu['created_at']);
-            unset($menu['updated_at']);
             $databasemenu = new MenuMoney($menu);
             $databasemenu->make();
             $this->menus[] = $databasemenu;
@@ -33,8 +31,6 @@ class MenuInstance
         $this->menu->menuPointAll();
         $menus = $this->menu->getPointAll();
         foreach ($menus as $menu){
-            unset($menu['created_at']);
-            unset($menu['updated_at']);
             $databasemenu = new MenuPoint($menu);
             $databasemenu->make();
             $this->menus[] = $databasemenu;

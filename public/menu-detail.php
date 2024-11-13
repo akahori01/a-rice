@@ -36,9 +36,10 @@ if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] ==
     }
 }
 
-$menuId = $_GET['menu-detail'];
 
-if (preg_match('/\A[0-9]+\z/u', $menuId) !== 1){
+if (isset($_GET['menu-detail']) && preg_match('/\A[0-9]+\z/u', $_GET['menu-detail']) === 1){
+    $menuId = $_GET['menu-detail'];
+}else{
     header('Location: error.php');
     exit();
 }
@@ -57,7 +58,6 @@ foreach($menuDatabaseAll as $menuDatabase){
     }
 }
 foreach ($instanceMenuAll as $key => $menuInstance){
-    // var_dump($menuInstance->getMenuId());
     if (intval($menuId) !== $menuInstance->getMenuId()){
         unset($instanceMenuAll[$key]);
     } else{
@@ -69,6 +69,10 @@ if (!isset($choiceMenu)){
     header('Location: error.php');
 }
 
+$_SESSION['image'] = [];
+$_SESSION['image'][$menuId]['type'] = $choiceMenu->getMimeType();
+$_SESSION['image'][$menuId]['data'] = $choiceMenu->getImageData();
+$_SESSION['image'][$menuId]['last_modified'] = $choiceMenu->getUpdated_at();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,12 +105,12 @@ if (!isset($choiceMenu)){
             <div class="container">
                 <div class="image">
                     <ul>
-                        <li><img src="<?= $choiceMenu->getImagePass() ?>" alt="no-image"></li>
+                        <li><img src="image-output.php?id=<?= $menuId ?>" alt="お米"></li>
                     </ul>
                 </div>
                 <div class="char">
                     <ul>
-                    <?php if($choiceMenu->datas['menu_id'] !== 34): ?>
+                    <?php if($choiceMenu->datas['menu_id'] !== ConstAPP::LARGELOT_ORIGINAL_MANU_ID): ?>
                         <li><?= $choiceMenu->getCostFormat() ?></li>
                         <li>内容量：<?= $choiceMenu->getWeight(). $choiceMenu->getUnit() ?></li>
                     <?php endif ?>

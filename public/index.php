@@ -42,6 +42,8 @@ if (empty($_SESSION['message']['order'])){
     }
 }
 
+$_SESSION['image'] = [];
+
 $menu = new MenuInstance();
 $menus = $menu->moneyMenu();
 $menus = isset($menus) ? $menus : [];
@@ -60,12 +62,17 @@ $randomId = bin2hex(random_bytes(32));
 $_SESSION['index_token'] = $randomId;
 
 $_SESSION[ConstApp::SIGNUP_DATA] = [];
-
 if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGIN_MESSAGE])){
     $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
 }
 
 
+// for ($i = 0; $i < count($menus); $i++){
+//     $menuId = $menus[$i]->getMenuId();
+//     $_SESSION['image'][$menuId]['type'] = $menus[$i]->getMimeType();
+//     $_SESSION['image'][$menuId]['data'] = $menus[$i]->getImageData();
+//     $_SESSION['image'][$menuId]['last_modified'] = $menus[$i]->getUpdated_at();
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,15 +111,17 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
         <div class="input-field">
             <?php if (!empty($menus)) : ?>
             <?php for ($i = 0; $i < count($menus); $i++): ?>
-                <?php $_SESSION['image'][$i]['type'] = $menus[$i]->getMimeType() ?>
-                <?php $_SESSION['image'][$i]['data'] = $menus[$i]->getImageData() ?>
+                <?php $menuId = $menus[$i]->getMenuId() ?>
+                <?php $_SESSION['image'][$menuId]['type'] = $menus[$i]->getMimeType() ?>
+                <?php $_SESSION['image'][$menuId]['data'] = $menus[$i]->getImageData() ?>
+                <?php $_SESSION['image'][$menuId]['last_modified'] = $menus[$i]->getUpdated_at() ?>
                 <div class="container">
-                <form action="./menu-detail.php" method="GET">
+                    <form action="./menu-detail.php" method="GET">
                     <div class="image">
                         <ul>
                             <li>
-                                <button type="submit" name="menu-detail" value="<?= $menus[$i]->getMenuId() ?>">
-                                    <img src="image-output.php?id=<?= $i ?>" alt="no-image">
+                                <button type="submit" name="menu-detail" value="<?= $menuId ?>">
+                                    <img src="image-output.php?id=<?= $menuId ?>" alt="no-image">
                                 </button>
                             </li>
                         </ul>

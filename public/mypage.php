@@ -19,6 +19,8 @@ require_once(__DIR__. '/../DB/OrderModel.php');
 require_once (__DIR__. '/../class/MenuMoney.php');
 require_once (__DIR__. '/../class/MenuPoint.php');
 
+
+
 $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $IPaddress = $_SERVER['REMOTE_ADDR'];
 $howToLogin = new LoginWay($IPaddress, $url);
@@ -43,6 +45,7 @@ if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] ==
 $_SESSION['personData'] = [];
 $_SESSION[ConstApp::SIGNUP_DATA] = [];
 $_SESSION[ConstApp::SIGNUP_MESSAGE] = [];
+$_SESSION['image'] = [];
 
 
 try {
@@ -147,12 +150,20 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
                                 </form>
                             </tr>
                             </table>
-                        <?php else: ?>
+                            <?php else: ?>
+                            <?php $menuId = $orderData->getMenuId() ?>
+                            <?php $_SESSION['image'][$menuId]['type'] = $orderData->getMimeType() ?>
+                            <?php $_SESSION['image'][$menuId]['data'] = $orderData->getImageData() ?>
+                            <?php $_SESSION['image'][$menuId]['last_modified'] = $orderData->getUpdated_at() ?>
                             <div class="item-container">
                                 <div class="item-img">
                                     <form action="./menu-detail.php" method="GET">
                                         <ul>
-                                            <li><button type="submit" name="menu-detail" value="<?= $orderData->getMenuId() ?>"><img src="<?php $orderData->getImagePass() ?>" alt="no-image"></button></li>
+                                            <li>
+                                                <button type="submit" name="menu-detail" value="<?= $menuId ?>">
+                                                    <img src="image-output.php?id=<?= $menuId ?>" alt="no-image">
+                                                </button>
+                                            </li>
                                         </ul>
                                     </form>
                                 </div>
@@ -213,11 +224,15 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
                         </div>
                     <?php endif ?>
                             <?php else: ?>
+                                <?php $menuId = $orderData[$i]->getMenuId() ?>
+                                <?php $_SESSION['image'][$menuId]['type'] = $orderData[$i]->getMimeType() ?>
+                                <?php $_SESSION['image'][$menuId]['data'] = $orderData[$i]->getImageData() ?>
+                                <?php $_SESSION['image'][$menuId]['last_modified'] = $orderData[$i]->getUpdated_at() ?>
                                 <div class="item-container">
                                     <div class="item-img">
                                         <form action="./menu-detail.php" method="GET">
                                             <ul>
-                                                <li><button type="submit" name="menu-detail" value="<?= $orderData[$i]->getMenuId() ?>"><img src="<?php $orderData[$i]->getImagePass() ?>" alt="no-image"></button></li>
+                                                <li><button type="submit" name="menu-detail" value="<?= $menuId ?>"><img src="image-output.php?id=<?= $menuId ?>" alt="no-image"></button></li>
                                             </ul>
                                         </form>
                                     </div>
@@ -287,11 +302,15 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
                             </tr>
                             </table>
                             <?php else: ?>
+                                <?php $menuId = $orderData->getMenuId() ?>
+                                <?php $_SESSION['image'][$menuId]['type'] = $orderData->getMimeType() ?>
+                                <?php $_SESSION['image'][$menuId]['data'] = $orderData->getImageData() ?>
+                                <?php $_SESSION['image'][$menuId]['last_modified'] = $orderData->getUpdated_at() ?>
                                 <div class="item-container">
                                     <div class="item-img">
                                         <form action="./menu-detail.php" method="GET">
                                             <ul>
-                                                <li><button type="submit" name="menu-detail" value="<?= $orderData->getMenuId() ?>"><img src="<?php $orderData->getImagePass() ?>" alt="no-image"></button></li>
+                                                <li><button type="submit" name="menu-detail" value="<?= $menuId ?>"><img src="image-output.php?id=<?= $menuId ?>" alt="no-image"></button></li>
                                             </ul>
                                         </form>
                                     </div>
@@ -349,11 +368,15 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
                         </div>
                     <?php endif ?>
                             <?php else: ?>
+                                <?php $menuId = $orderData[$i]->getMenuId() ?>
+                                <?php $_SESSION['image'][$menuId]['type'] = $orderData[$i]->getMimeType() ?>
+                                <?php $_SESSION['image'][$menuId]['data'] = $orderData[$i]->getImageData() ?>
+                                <?php $_SESSION['image'][$menuId]['last_modified'] = $orderData[$i]->getUpdated_at() ?>
                                 <div class="item-container">
                                     <div class="item-img">
                                         <form action="./menu-detail.php" method="GET">
                                             <ul>
-                                                <li><button type="submit" name="menu-detail" value="<?= $orderData[$i]->getMenuId() ?>"><img src="<?php $orderData[$i]->getImagePass() ?>" alt="no-image"></button></li>
+                                                <li><button type="submit" name="menu-detail" value="<?= $menuId ?>"><img src="image-output.php?id=<?= $menuId ?>" alt="no-image"></button></li>
                                             </ul>
                                         </form>
                                     </div>
@@ -377,6 +400,7 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
                 <p>無し</p>
                 <?php endif ?>
                 <?php $counter = 0 ?>
+
                 <h4>購入済商品</h4>
                 <?php if (!empty($orderModel->getNoGroupAfterDay())): ?>
                     <?php foreach ($orderModel->getNoGroupAfterDay() as $orderData): ?>
@@ -417,11 +441,15 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
                                 <?php break ?>
                             <?php endif ?>
                         <?php else: ?>
+                            <?php $menuId = $orderData->getMenuId() ?>
+                            <?php $_SESSION['image'][$menuId]['type'] = $orderData->getMimeType() ?>
+                            <?php $_SESSION['image'][$menuId]['data'] = $orderData->getImageData() ?>
+                            <?php $_SESSION['image'][$menuId]['last_modified'] = $orderData->getUpdated_at() ?>
                             <div class="item-container">
                                 <div class="item-img">
                                     <form action="./menu-detail.php" method="GET">
                                         <ul>
-                                            <li><button type="submit" name="menu-detail" value="<?= $orderData->getMenuId() ?>"><img src="<?php $orderData->getImagePass() ?>" alt="no-image"></button></li>
+                                            <li><button type="submit" name="menu-detail" value="<?= $menuId ?>"><img src="image-output.php?id=<?= $menuId ?>" alt="no-image"></button></li>
                                         </ul>
                                     </form>
                                 </div>
@@ -494,11 +522,15 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
                                     </div>
                                 <?php endif ?>
                             <?php else: ?>
+                                <?php $menuId = $orderData[$i]->getMenuId() ?>
+                                <?php $_SESSION['image'][$menuId]['type'] = $orderData[$i]->getMimeType() ?>
+                                <?php $_SESSION['image'][$menuId]['data'] = $orderData[$i]->getImageData() ?>
+                                <?php $_SESSION['image'][$menuId]['last_modified'] = $orderData[$i]->getUpdated_at() ?>
                                 <div class="item-container">
                                     <div class="item-img">
                                         <form action="./menu-detail.php" method="GET">
                                             <ul>
-                                                <li><button type="submit" name="menu-detail" value="<?= $orderData[$i]->getMenuId() ?>"><img src="<?php $orderData[$i]->getImagePass() ?>" alt="no-image"></button></li>
+                                                <li><button type="submit" name="menu-detail" value="<?= $menuId ?>"><img src="image-output.php?id=<?= $menuId ?>" alt="no-image"></button></li>
                                             </ul>
                                         </form>
                                     </div>

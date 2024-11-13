@@ -104,4 +104,7 @@ class ConstApp
     const PRICE_RICE_10 = 3800;
     const PRICE_RICE_15 = 5500;
     const PRICE_RICE_30 = 11000;
+
+    // menu-detail.php
+    const LARGELOT_ORIGINAL_MANU_ID = 53;
 }

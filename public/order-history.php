@@ -45,7 +45,7 @@ try {
 
 
 
-
+$_SESSION['image'] = [];
 $randomId = bin2hex(random_bytes(32));
 
 
@@ -224,11 +224,15 @@ $randomId = bin2hex(random_bytes(32));
                             </table>
                             <?php $counter++ ?>
                         <?php else: ?>
+                            <?php $menuId = $orderData->getMenuId() ?>
+                            <?php $_SESSION['image'][$menuId]['type'] = $orderData->getMimeType() ?>
+                            <?php $_SESSION['image'][$menuId]['data'] = $orderData->getImageData() ?>
+                            <?php $_SESSION['image'][$menuId]['last_modified'] = $orderData->getUpdated_at() ?>
                             <div class="item-container">
                                 <div class="item-img">
                                     <form action="./menu-detail.php" method="GET">
                                         <ul>
-                                            <li><button type="submit" name="menu-detail" value="<?= $orderData->getMenuId() ?>"><img src="<?php $orderData->getImagePass() ?>" alt="no-image"></button></li>
+                                            <li><button type="submit" name="menu-detail" value="<?= $menuId ?>"><img src="image-output.php?id=<?= $menuId ?>" alt="no-image"></button></li>
                                         </ul>
                                     </form>
                                 </div>
@@ -294,18 +298,22 @@ $randomId = bin2hex(random_bytes(32));
                                 <?php if (($i + 1) == count($orderData)): ?>
                                     <?php if ($counter % 3 !== 0) : ?>
                                         <?php $orderBlankFill = 3 - ($counter % 3) ?>
-                                        <?php for ($i = 0; $i < $orderBlankFill; $i++): ?>
+                                        <?php for ($j = 0; $j < $orderBlankFill; $j++): ?>
                                             <div class="order-blank-fill"><p></p></div>
                                         <?php endfor ?>
                                     <?php endif ?>
                         </div>
                                 <?php endif ?>
                             <?php else: ?>
+                                <?php $menuId = $orderData[$i]->getMenuId() ?>
+                                <?php $_SESSION['image'][$menuId]['type'] = $orderData[$i]->getMimeType() ?>
+                                <?php $_SESSION['image'][$menuId]['data'] = $orderData[$i]->getImageData() ?>
+                                <?php $_SESSION['image'][$menuId]['last_modified'] = $orderData[$i]->getUpdated_at() ?>
                                 <div class="item-container">
                                     <div class="item-img">
                                         <form action="./menu-detail.php" method="GET">
                                             <ul>
-                                                <li><button type="submit" name="menu-detail" value="<?= $orderData[$i]->getMenuId() ?>"><img src="<?php $orderData[$i]->getImagePass() ?>" alt="no-image"></button></li>
+                                                <li><button type="submit" name="menu-detail" value="<?= $menuId ?>"><img src="image-output.php?id=<?= $menuId ?>" alt="no-image"></button></li>
                                             </ul>
                                         </form>
                                     </div>
@@ -322,7 +330,7 @@ $randomId = bin2hex(random_bytes(32));
                                 <?php if (($i + 1) == count($orderData)): ?>
                                     <?php if ($counter % 3 !== 0) : ?>
                                         <?php $orderBlankFill = 3 - ($counter % 3) ?>
-                                        <?php for ($i = 0; $i < $orderBlankFill; $i++): ?>
+                                        <?php for ($j = 0; $j < $orderBlankFill; $j++): ?>
                                             <div class="order-blank-fill"><p></p></div>
                                         <?php endfor ?>
                                     <?php endif ?>

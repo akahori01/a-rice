@@ -34,6 +34,15 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
     header('Location: ./../../../index.php');
     exit();
 }
+
+if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isset($_SESSION['image'][$_GET['id']])) {
+    $i = $_GET['id'];
+}else {
+    $howToLogin->destroyCookieAndSession();
+    header('Location: ./../../../index.php');
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,35 +57,35 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
     <ul>
     <div class="itemlist-bigpc">
         <h3>商品一覧ページの画像サイズ(BIG PC)用</h3>
-        <li><img src="insert-image.php" alt=""></li>
+        <li><img src="insert-image.php?id=<?= $i ?>" alt=""></li>
     </div>
     <div class="itemlist-smallpc">
         <h3>商品一覧ページの画像サイズ(small PC)用</h3>
-        <li><img src="insert-image.php" alt=""></li>
+        <li><img src="insert-image.php?id=<?= $i ?>" alt=""></li>
     </div>
     <div class="itemlist-tablet">
         <h3>商品一覧ページの画像サイズ(タブレット)用</h3>
-        <li><img src="insert-image.php" alt=""></li>
+        <li><img src="insert-image.php?id=<?= $i ?>" alt=""></li>
     </div>
     <div class="itemlist-mobile">
         <h3>商品一覧ページの画像サイズ(iphone or Android)用</h3>
-        <li><img src="insert-image.php" alt=""></li>
+        <li><img src="insert-image.php?id=<?= $i ?>" alt=""></li>
     </div>
     <div class="iteminfo-bigpc">
         <h3>商品詳細ページの画像サイズ(BIG PC)用</h3>
-        <li><img src="insert-image.php" alt=""></li>
+        <li><img src="insert-image.php?id=<?= $i ?>" alt=""></li>
     </div>
     <div class="iteminfo-smallpc">
         <h3>商品詳細ページの画像サイズ(small PC)用</h3>
-        <li><img src="insert-image.php" alt=""></li>
+        <li><img src="insert-image.php?id=<?= $i ?>" alt=""></li>
     </div>
     <div class="iteminfo-tablet">
         <h3>商品詳細ページの画像サイズ(タブレット)用</h3>
-        <li><img src="insert-image.php" alt=""></li>
+        <li><img src="insert-image.php?id=<?= $i ?>" alt=""></li>
     </div>
     <div class="iteminfo-mobile">
         <h3>商品詳細ページの画像サイズ(iphone or Android)用</h3>
-        <li><img src="insert-image.php" alt=""></li>
+        <li><img src="insert-image.php?id=<?= $i ?>" alt=""></li>
     </div>
     </ul>
 </body>

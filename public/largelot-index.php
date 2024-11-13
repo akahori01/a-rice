@@ -2,10 +2,12 @@
 header('Content-Type: text/html; charset=UTF-8');
 header('X-XSS-Protection: 1; mode=block');
 header('X-Frame-Options: DENY');
-session_cache_limiter('nocache');
 header("Cache-Control: no-cache");
 header("Pragma: no-cache");
 header("Expires: -1");
+session_cache_limiter('nocache');
+session_start();
+
 require_once(__DIR__. '/../DB/LoginWay.php');
 require_once(__DIR__. '/../DB/UserModel.php');
 
@@ -17,7 +19,6 @@ require_once(__DIR__. '/../configs/constApp.php');
 require_once(__DIR__. '/../configs/constClass.php');
 require_once(__DIR__. '/../configs/constDB.php');
 
-session_start();
 
 
 $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -44,9 +45,15 @@ if (isset($_SESSION['data']['total_order_count'])) {
 }
 
 
+$_SESSION['image'] = [];
 $menu = new MenuInstance();
 $menusArray = $menu->pointMenu();
 $menuObject = $menusArray[0];
+$menuId = $menuObject->getMenuId();
+$_SESSION['image'][$menuId]['type'] = $menuObject->getMimeType();
+$_SESSION['image'][$menuId]['data'] = $menuObject->getImageData();
+$_SESSION['image'][$menuId]['last_modified'] = $menuObject->getUpdated_at();
+
 
 if (isset($_SESSION['data']['checkDay']))
 {
@@ -89,7 +96,6 @@ $PriceRice30 = number_format($rice30). '円';
     <link rel="stylesheet" href="./assets/same.css">
     <script>
         function CalculationResult(){
-            // let total = parseInt(document.getElementById('total').value) || 0;
             let num5 = parseInt(document.getElementById('num5').value) || 0;
             let num10 = parseInt(document.getElementById('num10').value) || 0;
             let num15 = parseInt(document.getElementById('num15').value) || 0;
@@ -134,7 +140,11 @@ $PriceRice30 = number_format($rice30). '円';
                 <form action="./menu-detail.php" method="GET">
                     <div class="image">
                         <ul>
-                            <li><button type="submit" name="menu-detail" value="<?= $menuObject->getMenuId() ?>"><img src="<?php $menuObject->getImagePass() ?>" alt="150kg米"></button></li>
+                            <li>
+                                <button type="submit" name="menu-detail" value="<?= $menuId ?>">
+                                    <img src="image-output.php?id=<?= $menuId ?>" alt="no-image">
+                                </button>
+                            </li>
                         </ul>
                     </div>
                 </form>

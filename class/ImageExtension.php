@@ -2,6 +2,7 @@
 require_once(__DIR__. '/Check.php');
 require_once(__DIR__. '/Message.php');
 require_once(__DIR__. '/Make.php');
+require_once(__DIR__. '/ImageCompression.php');
 require_once(__DIR__. '/../configs/constApp.php');
 
 class ImageExtension
@@ -25,6 +26,8 @@ class ImageExtension
     public $fileExtension;
     public $fileSize;
     public $mime;
+    public $compression;
+    public $imageData;
 
     public function __construct($image)
     {
@@ -36,6 +39,7 @@ class ImageExtension
         $this->check = new Check();
         $this->make = new Make();
         $this->message = new Message();
+        $this->compression = new ImageCompression();
     }
 
     public function check()
@@ -46,6 +50,24 @@ class ImageExtension
             $this->mime = $this->check->extensionType($this->imageType, $this->imagePass);
             $this->fileExtension = ($this->mime === false) ? false : (in_array($this->mime, ConstClass::MIMES, true));
             $this->fileSize = $this->check->fileSize($this->imageSize);
+        }
+    }
+
+    public function compression()
+    {
+        if (empty($this->getMessage())){
+            // 使用例: 圧縮する元の画像パスと保存先、目標サイズを指定
+            $sourceImage = $this->getImagePass();  // 元画像
+            $targetSizeKB = 100;  // 目標サイズ 100KB
+            $maxTargetSizeKB = 300;  // MAXサイズ 300KB
+            $afterCompressionImageData = $this->compression->compressImage($sourceImage, $targetSizeKB, $maxTargetSizeKB);
+            if($afterCompressionImageData === false){
+                $this->message->impossibleFileSize(self::MENU_IMTAGE);
+            }else{
+                $this->imageData = $afterCompressionImageData;
+            }
+        }else{
+            return;
         }
     }
 
@@ -110,5 +132,9 @@ class ImageExtension
     public function getImageMimeType()
     {
         return $this->mime;
+    }
+    public function getImageData()
+    {
+        return $this->imageData;
     }
 }

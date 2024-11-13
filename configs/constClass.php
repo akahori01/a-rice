@@ -22,9 +22,7 @@ class ConstClass
     const CITYS = [self::CITY1, self::CITY2];
     const MIME1 = 'image/jpg';
     const MIME2 = 'image/jpeg';
-    const MIME3 = 'image/png';
-    const MIME4 = 'image/gif';
-    const MIMES = [self::MIME1, self::MIME2, self::MIME3, self::MIME4];
+    const MIMES = [self::MIME1, self::MIME2];
 
     // 4000000B = 4000KB = 4MB
     const MAX_FILE_SIZE = '4000000';

@@ -14,8 +14,10 @@
 </div>
 
 
+
+
 <!-- ローカル用 -->
-<!--
+<!-- 
 <ul class="footer-mobile">
     <li><a href="../public/index.php"><img src="../public/library/shopping.png" alt="買い物">商品購入</a></li>
     <li><a href="../public/mypage.php"><img src="../public/library/acount.png" alt="アカウント">マイページ</a></li>

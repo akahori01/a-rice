@@ -66,7 +66,10 @@ $rice30 = number_format(ConstApp::PRICE_RICE_30). '円';
             <div class="top-wrapper">
                 <div class="container">
                     <div class="image">
+                        <!-- サーバー用 -->
                         <p><img src="/library/rice-polishing.png" alt="精米"></p>
+                        <!-- ローカル用 -->
+                        <!-- <p><img src="/rice-project/public/library/rice-polishing.png" alt="精米"></p> -->
                     </div>
                     <div class="text">
                         <p>お客様からの注文が入ってから精米</p>
@@ -74,7 +77,10 @@ $rice30 = number_format(ConstApp::PRICE_RICE_30). '円';
                 </div>
                 <div class="container">
                     <div class="image">
+                        <!-- サーバー用 -->
                         <p><img src="/library/rice-delivery.png" alt="配達"></p>
+                        <!-- ローカル用 -->
+                        <!-- <p><img src="/rice-project/public/library/rice-delivery.png" alt="配達"></p> -->
                     </div>
                     <div class="text">
                         <p>精米・配達は無料で行っております</p>
@@ -82,7 +88,10 @@ $rice30 = number_format(ConstApp::PRICE_RICE_30). '円';
                 </div>
                 <div class="container">
                     <div class="image">
+                        <!-- サーバー用 -->
                         <p><img src="/library/ear-of-rice.png" alt="米ぬか説明"></p>
+                        <!-- ローカル用 -->
+                        <!-- <p><img src="/rice-project/public/library/ear-of-rice.png" alt="米ぬか説明"></p> -->
                     </div>
                     <div class="text">
                         <p>実量の約1割ほど米ぬかになります</p>
@@ -95,7 +104,10 @@ $rice30 = number_format(ConstApp::PRICE_RICE_30). '円';
             <div class="second-wrapper">
                 <div class="container">
                     <div class="image">
+                        <!-- サーバー用 -->
                         <p><img src="/library/ric-bales.png" alt="米俵"></p>
+                        <!-- ローカル用 -->
+                        <!-- <p><img src="/rice-project/public/library/ric-bales.png" alt="米俵"></p> -->
                     </div>
                     <div class="text">
                         <p>15kg・30kgに加え、5kg・10kg単位と小分けでの注文が可能です</p>
@@ -103,7 +115,10 @@ $rice30 = number_format(ConstApp::PRICE_RICE_30). '円';
                 </div>
                 <div class="container">
                     <div class="image">
+                        <!-- サーバー用 -->
                         <p><img src="/library/golf-championship.png" alt="米俵"></p>
+                        <!-- ローカル用 -->
+                        <!-- <p><img src="/rice-project/public/library/golf-championship.png" alt="米俵"></p> -->
                     </div>
                     <div class="text">
                         <p>ゴルフコンペの景品・ご贈答品などに如何でしょうか</p>

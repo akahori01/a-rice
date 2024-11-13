@@ -80,7 +80,7 @@ switch ($_FILES['image']['error'])
         $imageType = ConstApp::DEFAULT_IMAGE_TYPE;
         $imageSize = ConstApp::DEFAULT_IMAGE_SIZE;
         $_SESSION['moneyMessageImage'] = [];
-        $_SESSION['imageData'] = file_get_contents($imagePass);
+        $imageData = file_get_contents($imagePass);
         $_SESSION['image']['name'] = $imageName;
         $_SESSION['image']['tmp_name'] = $imagePass;
         $_SESSION['image']['type'] = $imageType;
@@ -91,6 +91,7 @@ switch ($_FILES['image']['error'])
         $image = new ImageExtension($_FILES['image']);
         $image->check();
         $image->setMessage();
+        $image->compression();
         $_SESSION['moneyMessageImage'] = $image->getMessage();
         $_SESSION['image'] = $_FILES['image'];
         $_SESSION['image']['type'] = $image->getImageMimeType();
@@ -98,7 +99,8 @@ switch ($_FILES['image']['error'])
             header('Location: insert-admin-menu-table.php');
             exit();
         }else {
-            $_SESSION['imageData'] = file_get_contents($_FILES['image']['tmp_name']);
+            $imageType = $image->getImageType();
+            $imageData = $image->getImageData();
         }
 }
 if ($_SESSION['moneyMessage'] !== [] || $_SESSION['moneyMessageImage'] !== [])
@@ -139,23 +141,33 @@ array_push($menus, $menu);
     <br>
     <br>
     <div class="wrapper-order">
-    <?php foreach ($menus as $menu): ?>
+    <?php $i = 0 ?>
+    <?php for ($j = 0; $j < count($menus); $j++): ?>
+        <?php
+        if (isset($menus[$j]->datas['menu_image_pass']) && isset($menus[$j]->datas['menu_image_data'])):
+            $_SESSION['image'][$j]['type'] = $menus[$j]->getMimeType();
+            $_SESSION['image'][$j]['data'] = $menus[$j]->getImageData();
+        ?>
+        <?php else:
+            $_SESSION['image'][$j]['type'] = $imageType;
+            $_SESSION['image'][$j]['data'] = $imageData;
+        endif
+        ?>
         <div class="container">
             <div class="frame">
                 <ul>
-                    <?php if (isset($menu->datas['menu_image_pass'])): ?>
-                    <li><img src="<?= '../../../'. $menu->datas['menu_image_pass'] ?>" alt=""></li>
+                    <?php if (isset($menus[$j]->datas['menu_image_pass']) && isset($menus[$j]->datas['menu_image_data'])): ?>
+                        <li><img src="insert-image.php?id=<?= $j ?>" alt=""></li>
                     <?php else: ?>
-                    <li><a class="box-link" href="display-image.php" target="blank"><img src="insert-image.php" alt=""></a></li>
-                    <!-- <img src="<?= isset($imagePass) ? $imagePass : $image->getImagePass() ?>" alt=""> -->
+                        <li><a class="box-link" href="display-image.php?id=<?= $j ?>" target="blank"><img src="insert-image.php?id=<?= $j ?>" alt=""></a></li>
                     <?php endif ?>
                 </ul>
             </div>
             <div class="char">
                 <ul>
-                <li>商品名：<?= $menu->getName() ?></li>
-                <li><?= $menu->getCostFormat() ?></li>
-                <li>内容量：<?= $menu->getWeight(). $menu->getUnit() ?></li>
+                <li>商品名：<?= $menus[$j]->getName() ?></li>
+                <li><?= $menus[$j]->getCostFormat() ?></li>
+                <li>内容量：<?= $menus[$j]->getWeight(). $menus[$j]->getUnit() ?></li>
                     <li>数量：<select name="count">
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -168,18 +180,21 @@ array_push($menus, $menu);
                 </ul>
             </div>
         </div>
-        <?php endforeach ?>
+        <?php
+            $i = $j;
+        ?>
+        <?php endfor ?>
     </div>
-        <br>
-        <br>
-        <h2>商品詳細プレビュー画面</h2>
+    <br>
+    <br>
+    <h2>商品詳細プレビュー画面</h2>
     <br>
     <br>
     <div class="wrapper-info">
         <div class="contai">
             <div class="frame">
                 <ul>
-                    <li><a class="box-link" href="display-image.php" target="blank"><?= isset($imagePass) ? $imageName : $image->getImagePass() ?></a></li>
+                    <li><a class="box-link" href="display-image.php?id=<?= $i ?>" target="blank"><img src="insert-image.php?id=<?= $i ?>" alt=""></a></li>
                 </ul>
             </div>
             <div class="char">
@@ -202,4 +217,9 @@ array_push($menus, $menu);
     <h3><a href="insert-admin-menu-table.php">戻る</a></h3>
     <h3><a href="cpl-insert-menu-table.php">商品追加確定へ</a></h3>
 </body>
+<?php
+    $_SESSION['image']['type'] = $_SESSION['image'][$i]['type'];
+    $_SESSION['image']['data'] = $_SESSION['image'][$i]['data'];
+?>
+
 </html>

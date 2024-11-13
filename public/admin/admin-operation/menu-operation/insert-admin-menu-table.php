@@ -56,7 +56,7 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
             <div class="tab_content_description">
                 <form action="edit-insert-menu-table.php" method="POST" enctype="multipart/form-data">
                     <ul>
-                        <li>写真: [※拡張子( jpg, jpeg, png, gif )、※ファイルサイズ( 4000000B = 4000KB = 4MB 未満 )] 選択しない場合デフォルトの画像が表示されます</li>
+                        <li>写真: [※拡張子( jpg, jpeg )、※ファイルサイズ( 4000000B = 4000KB = 4MB 未満 )] 選択しない場合デフォルトの画像が表示されます</li>
                         <p style="color: red;"><?= isset($_SESSION[ConstApp::MENU_MONEY_MESSAGE_IMAGE][ConstApp::MENU_IMAGE]) ? $_SESSION[ConstApp::MENU_MONEY_MESSAGE_IMAGE][ConstApp::MENU_IMAGE] : '' ?></p>
                         <input type="file" name="image" accept="image/*">
                         <p>↓デフォルト画像</p>

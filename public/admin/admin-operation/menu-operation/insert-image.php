@@ -35,20 +35,21 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
     exit();
 }
 
-switch ($_SESSION['image']['type'])
-{
-    case 'image/jpg':
-    case 'image/jpeg':
-        header('Content-type: image/jpeg');
-        break;
-    case 'image/png':
-        header('Content-type: image/png');
-        break;
-    case 'image/gif':
-        header('Content-type: image/gif');
-        break;
-    default:
-        header('Location: ./../../../error.php');
-        exit();
+
+if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isset($_SESSION['image'][$_GET['id']])) {
+    $image = $_SESSION['image'][$_GET['id']];
+
+    switch ($image['type'])
+    {
+        case 'image/jpg':
+        case 'image/jpeg':
+            header('Content-type: image/jpeg');
+            break;
+        default:
+            header('Location: ./../../../error.php');
+            exit();
+    }
+    echo $image['data'];
+}else{
+    echo '';
 }
-print_r($_SESSION['imageData']);

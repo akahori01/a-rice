@@ -57,7 +57,6 @@ $business_set = $_SESSION['data']['menus'][0]['business_set'];
 $order->insertOrderTable($userId, $deliverydate->format('Y-m-d'), $business_set, $orderGroup);
 $_SESSION['data'] = [];
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
