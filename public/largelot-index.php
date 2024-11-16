@@ -48,11 +48,15 @@ if (isset($_SESSION['data']['total_order_count'])) {
 $_SESSION['image'] = [];
 $menu = new MenuInstance();
 $menusArray = $menu->pointMenu();
-$menuObject = $menusArray[0];
-$menuId = $menuObject->getMenuId();
-$_SESSION['image'][$menuId]['type'] = $menuObject->getMimeType();
-$_SESSION['image'][$menuId]['data'] = $menuObject->getImageData();
-$_SESSION['image'][$menuId]['last_modified'] = $menuObject->getUpdated_at();
+if (isset($menusArray)){
+    $menuObject = $menusArray[0];
+    $menuId = $menuObject->getMenuId();
+    $_SESSION['image'][$menuId]['type'] = $menuObject->getMimeType();
+    $_SESSION['image'][$menuId]['data'] = $menuObject->getImageData();
+    $_SESSION['image'][$menuId]['last_modified'] = $menuObject->getUpdated_at();
+}else{
+    $menusObject = [];
+}
 
 
 if (isset($_SESSION['data']['checkDay']))
@@ -135,43 +139,45 @@ $PriceRice30 = number_format($rice30). '円';
                 <li>お届け日1週間以内の注文キャンセルは出来ませんので注意して下さい</li>
             </ul>
         </div>
-        <div class="input-field">
-            <div class="container">
-                <form action="./menu-detail.php" method="GET">
-                    <div class="image">
+        <?php if (!empty($menuObject)) : ?>
+            <div class="input-field">
+                <div class="container">
+                    <form action="./menu-detail.php" method="GET">
+                        <div class="image">
+                            <ul>
+                                <li>
+                                    <button type="submit" name="menu-detail" value="<?= $menuId ?>">
+                                        <img src="image-output.php?id=<?= $menuId ?>" alt="no-image">
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    <div class="char">
                         <ul>
-                            <li>
-                                <button type="submit" name="menu-detail" value="<?= $menuId ?>">
-                                    <img src="image-output.php?id=<?= $menuId ?>" alt="no-image">
-                                </button>
-                            </li>
+                            <li>商品名： <?= $menuObject->getName() ?></li>
+                            <li class="small-font">※内容量は150kg以上になるようして下さい</li>
+                            <li>5kg (<?= $PriceRice5 ?>) → <input form="order-cfm" type="text" name="rice-breakdown-5" value="<?= isset($count5) ? $count5 : "" ?>" id="num5" size="3" maxlength="3" onkeyup=" CalculationResult()">個</li>
+                            <li>10kg (<?= $PriceRice10 ?>) → <input form="order-cfm" type="text" name="rice-breakdown-10" value="<?= isset($count10) ? $count10 : "" ?>" id="num10" size="3" maxlength="3" onkeyup=" CalculationResult()">個</li>
+                            <li>15kg (<?= $PriceRice15 ?>) → <input form="order-cfm" type="text" name="rice-breakdown-15" value="<?= isset($count15) ? $count15 : "" ?>" id="num15" size="3" maxlength="3" onkeyup=" CalculationResult()">個</li>
+                            <li>30kg (<?= $PriceRice30 ?>) → <input form="order-cfm" type="text" name="rice-breakdown-30" value="<?= isset($count30) ? $count30 : "" ?>" id="num30" size="3" maxlength="3" onkeyup=" CalculationResult()">個</li>
                         </ul>
-                    </div>
-                </form>
-                <div class="char">
-                    <ul>
-                        <li>商品名： <?= $menuObject->getName() ?></li>
-                        <li class="small-font">※内容量は150kg以上になるようして下さい</li>
-                        <li>5kg (<?= $PriceRice5 ?>) → <input form="order-cfm" type="text" name="rice-breakdown-5" value="<?= isset($count5) ? $count5 : "" ?>" id="num5" size="3" maxlength="3" onkeyup=" CalculationResult()">個</li>
-                        <li>10kg (<?= $PriceRice10 ?>) → <input form="order-cfm" type="text" name="rice-breakdown-10" value="<?= isset($count10) ? $count10 : "" ?>" id="num10" size="3" maxlength="3" onkeyup=" CalculationResult()">個</li>
-                        <li>15kg (<?= $PriceRice15 ?>) → <input form="order-cfm" type="text" name="rice-breakdown-15" value="<?= isset($count15) ? $count15 : "" ?>" id="num15" size="3" maxlength="3" onkeyup=" CalculationResult()">個</li>
-                        <li>30kg (<?= $PriceRice30 ?>) → <input form="order-cfm" type="text" name="rice-breakdown-30" value="<?= isset($count30) ? $count30 : "" ?>" id="num30" size="3" maxlength="3" onkeyup=" CalculationResult()">個</li>
-                    </ul>
-                    <div class="automatic-calculation">
-                        <p>自動計算</p>
-                        <ul class="result">
-                            <li> 内容量：</li>
-                             <li id="totalWeight"></li>
-                            <li id="warningWeight"></li>
-                        </ul>
-                        <ul class="result">
-                            <li> 合計金額：</li>
-                            <li id="totalPrice"></li>
-                        </ul>
+                        <div class="automatic-calculation">
+                            <p>自動計算</p>
+                            <ul class="result">
+                                <li> 内容量：</li>
+                                 <li id="totalWeight"></li>
+                                <li id="warningWeight"></li>
+                            </ul>
+                            <ul class="result">
+                                <li> 合計金額：</li>
+                                <li id="totalPrice"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        <?php endif ?>
         <div class="message">
                 <p style="color: red;"><?= isset($_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::ORDER]) ? $_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::ORDER] : '' ?></p>
         </div>
