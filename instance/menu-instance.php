@@ -19,22 +19,30 @@ class MenuInstance
     {
         $this->menu->menuMoneyAll();
         $menus = $this->menu->getMoneyAll();
-        foreach ($menus as $menu){
-            $databasemenu = new MenuMoney($menu);
-            $databasemenu->make();
-            $this->menus[] = $databasemenu;
+        if (is_null($menus)){
+            return $this->menus;
+        }else{
+            foreach ($menus as $menu){
+                $databasemenu = new MenuMoney($menu);
+                $databasemenu->make();
+                $this->menus[] = $databasemenu;
+            }
+            return $this->menus;
         }
-        return $this->menus;
     }
     public function pointMenu()
     {
         $this->menu->menuPointAll();
         $menus = $this->menu->getPointAll();
-        foreach ($menus as $menu){
-            $databasemenu = new MenuPoint($menu);
-            $databasemenu->make();
-            $this->menus[] = $databasemenu;
+        if (is_null($menus)){
+            return $this->menus;
+        }else{
+            foreach ($menus as $menu){
+                $databasemenu = new MenuPoint($menu);
+                $databasemenu->make();
+                $this->menus[] = $databasemenu;
+            }
+            return $this->menus;
         }
-        return $this->menus;
     }
 }

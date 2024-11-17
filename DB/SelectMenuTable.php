@@ -34,7 +34,11 @@ class SelectMenuTable
         {
             $rows[] = $row;
         }
-        return $rows;
+        if(isset($rows)){
+            return $rows;
+        }else{
+            return null;
+        }
     }
 
 
