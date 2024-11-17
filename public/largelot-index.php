@@ -48,15 +48,16 @@ if (isset($_SESSION['data']['total_order_count'])) {
 $_SESSION['image'] = [];
 $menu = new MenuInstance();
 $menusArray = $menu->pointMenu();
-if (isset($menusArray)){
+if (empty($menusArray)){
+    $menusObject = [];
+}else{
     $menuObject = $menusArray[0];
     $menuId = $menuObject->getMenuId();
     $_SESSION['image'][$menuId]['type'] = $menuObject->getMimeType();
     $_SESSION['image'][$menuId]['data'] = $menuObject->getImageData();
     $_SESSION['image'][$menuId]['last_modified'] = $menuObject->getUpdated_at();
-}else{
-    $menusObject = [];
 }
+
 
 
 if (isset($_SESSION['data']['checkDay']))
