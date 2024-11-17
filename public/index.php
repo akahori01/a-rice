@@ -23,6 +23,7 @@ $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST']
 $IPaddress = $_SERVER['REMOTE_ADDR'];
 $howToLogin = new LoginWay($IPaddress, $url);
 if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] === $_SESSION['logout']){
+    // $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
     $howToLogin->logout();
 } elseif (isset($_COOKIE['token']) && !isset($_SESSION['user_id'])){
     $howToLogin->autologin();
@@ -62,9 +63,11 @@ $randomId = bin2hex(random_bytes(32));
 $_SESSION['index_token'] = $randomId;
 
 $_SESSION[ConstApp::SIGNUP_DATA] = [];
-if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGIN_MESSAGE])){
-    $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
-}
+// if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGIN_MESSAGE])){
+//     $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
+// }
+
+
 
 
 // for ($i = 0; $i < count($menus); $i++){
@@ -95,6 +98,12 @@ if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGI
     <?php endif ?>
     <main>
         <div class="login-message">
+            <?php
+                if (isset($_SESSION[ConstApp::LOGIN_MESSAGE])) {
+                    echo "<p>" . htmlspecialchars($_SESSION[ConstApp::LOGIN_MESSAGE], ENT_QUOTES, 'UTF-8') . "</p>";
+                    unset($_SESSION[ConstApp::LOGIN_MESSAGE]); // 一度表示したら削除
+                }
+            ?>
             <p><?= isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && !empty($_SESSION[ConstApp::LOGIN_MESSAGE]) ? $_SESSION[ConstApp::LOGIN_MESSAGE] :'' ?></p>
         </div>
         <div class="title">

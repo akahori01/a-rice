@@ -78,6 +78,7 @@ class LoginWay{
         // userNameを平分で取得
         $userModel = new SelectUserModel($_SESSION[ConstApp::SIGNUP_USER_ID]);
         $userName = $userModel->selectName()->getName();
+        $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
         // token_infoテーブル内からuser_idにHITする全てのレコードを削除する
         $this->deleteUserIdTokenTable($_SESSION[ConstApp::SIGNUP_USER_ID]);
         // $_SESSIONと$_COOKIE値を削除
