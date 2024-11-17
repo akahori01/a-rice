@@ -63,19 +63,6 @@ $randomId = bin2hex(random_bytes(32));
 $_SESSION['index_token'] = $randomId;
 
 $_SESSION[ConstApp::SIGNUP_DATA] = [];
-// if (!isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && empty($_SESSION[ConstApp::LOGIN_MESSAGE])){
-//     $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
-// }
-
-
-
-
-// for ($i = 0; $i < count($menus); $i++){
-//     $menuId = $menus[$i]->getMenuId();
-//     $_SESSION['image'][$menuId]['type'] = $menus[$i]->getMimeType();
-//     $_SESSION['image'][$menuId]['data'] = $menus[$i]->getImageData();
-//     $_SESSION['image'][$menuId]['last_modified'] = $menus[$i]->getUpdated_at();
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,13 +85,15 @@ $_SESSION[ConstApp::SIGNUP_DATA] = [];
     <?php endif ?>
     <main>
         <div class="login-message">
-            <?php
-                if (isset($_SESSION[ConstApp::LOGIN_MESSAGE])) {
-                    echo "<p>" . htmlspecialchars($_SESSION[ConstApp::LOGIN_MESSAGE], ENT_QUOTES, 'UTF-8') . "</p>";
-                    unset($_SESSION[ConstApp::LOGIN_MESSAGE]); // 一度表示したら削除
-                }
-            ?>
-            <p><?= isset($_SESSION[ConstApp::LOGIN_MESSAGE]) && !empty($_SESSION[ConstApp::LOGIN_MESSAGE]) ? $_SESSION[ConstApp::LOGIN_MESSAGE] :'' ?></p>
+        <?php
+        if (isset($_COOKIE['login_message'])) {
+            echo "<p>" . htmlspecialchars($_COOKIE['login_message'], ENT_QUOTES, 'UTF-8') . "</p>";
+            setcookie('login_message', '', time() - 3600, '/'); // クッキー削除
+        }elseif (isset($_COOKIE['logout_message'])){
+            echo "<p>" . htmlspecialchars($_COOKIE['logout_message'], ENT_QUOTES, 'UTF-8') . "</p>";
+            setcookie('logout_message', '', time() - 3600, '/'); // クッキー削除
+        }
+        ?>
         </div>
         <div class="title">
             <h1>赤堀産地の<br>コシヒカリ</h1>
@@ -203,7 +192,6 @@ $_SESSION[ConstApp::SIGNUP_DATA] = [];
                 </div>
                 </form>
         </div>
-    <?php $_SESSION[ConstApp::LOGIN_MESSAGE] = '' ?>
     <?php $_SESSION[ConstApp::SIGNUP_MESSAGE] = [] ?>
     </main>
     <?php if (isset($_SESSION['user_id'])): ?>
