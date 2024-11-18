@@ -78,15 +78,15 @@ class LoginWay{
         // userNameを平分で取得
         $userModel = new SelectUserModel($_SESSION[ConstApp::SIGNUP_USER_ID]);
         $userName = $userModel->selectName()->getName();
-        // $logoutMessage = 'ログアウトしました';
+        $logoutMessage = 'ログアウトしました';
         // token_infoテーブル内からuser_idにHITする全てのレコードを削除する
         $this->deleteUserIdTokenTable($_SESSION[ConstApp::SIGNUP_USER_ID]);
         // $_SESSIONと$_COOKIE値を削除
         $this->destroyCookieAndSession();
         // ログアウトのログを記載
-        // file_put_contents(__DIR__. '/../errorLog/logoutRecord.php', $this->getCurrentDateTime(). ', IPアドレス '. $this->IPaddress. ', URL '. $this->url. ', ユーザー名 '. $userName. $logoutMessage. "\n", FILE_APPEND | LOCK_EX);
+        file_put_contents(__DIR__. '/../errorLog/logoutRecord.php', $this->getCurrentDateTime(). ', IPアドレス '. $this->IPaddress. ', URL '. $this->url. ', ユーザー名 '. $userName. $logoutMessage. "\n", FILE_APPEND | LOCK_EX);
         // cookieに一時的に「ログアウトしました」保存する
-        // setcookie('logout_message', $logoutMessage, time() + 10, '/');
+        setcookie('logout_message', $logoutMessage, time() + 10, '/');
         header('Location: index.php');
         exit();
     }
