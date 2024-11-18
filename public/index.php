@@ -22,8 +22,10 @@ require_once(__DIR__. '/../configs/constDB.php');
 $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 $IPaddress = $_SERVER['REMOTE_ADDR'];
 $howToLogin = new LoginWay($IPaddress, $url);
+var_dump('あ');
 if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] === $_SESSION['logout']){
     // $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
+    var_dump('い');
     $howToLogin->logout();
 } elseif (isset($_COOKIE['token']) && !isset($_SESSION['user_id'])){
     $howToLogin->autologin();
@@ -36,6 +38,7 @@ if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] ==
         exit();
     }
 }
+var_dump('う');
 
 if (empty($_SESSION['message']['order'])){
     if (isset($_SESSION['data']['order_count'])) {
