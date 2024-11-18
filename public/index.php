@@ -23,6 +23,17 @@ $url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://' . $_SERVER['HTTP_HOST']
 $IPaddress = $_SERVER['REMOTE_ADDR'];
 $howToLogin = new LoginWay($IPaddress, $url);
 var_dump('あ');
+if(isset($_POST['logout'])){
+    var_dump($_POST['logout']);
+}else{
+    var_dump('1');
+}
+if(isset($_SESSION['logout'])){
+    var_dump($_SESSION['logout']);
+}else{
+    var_dump('2');
+}
+
 if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] === $_SESSION['logout']){
     // $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
     var_dump('い');
