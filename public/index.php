@@ -26,7 +26,7 @@ var_dump('あ');
 if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] === $_SESSION['logout']){
     // $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログアウトしました';
     var_dump('い');
-    $howToLogin->logout();
+    // $howToLogin->logout();
 } elseif (isset($_COOKIE['token']) && !isset($_SESSION['user_id'])){
     $howToLogin->autologin();
 } elseif(isset($_SESSION['user_id'])){
