@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "061a39e91721c4b61e9cc874143cc5ec",
+    "content-hash": "d48fce8f4572150e577564605221fa8c",
     "packages": [],
     "packages-dev": [
         {
             "name": "heroku/heroku-buildpack-php",
-            "version": "v257",
+            "version": "v259",
             "source": {
                 "type": "git",
                 "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "60dd468633b4b7f294285fedad0eac68b7d77c6c"
+                "reference": "b27625c9b760101392b7a93d515422b4a9e77a7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/60dd468633b4b7f294285fedad0eac68b7d77c6c",
-                "reference": "60dd468633b4b7f294285fedad0eac68b7d77c6c",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/b27625c9b760101392b7a93d515422b4a9e77a7f",
+                "reference": "b27625c9b760101392b7a93d515422b4a9e77a7f",
                 "shasum": ""
             },
             "bin": [
@@ -48,21 +48,22 @@
             ],
             "support": {
                 "issues": "https://github.com/heroku/heroku-buildpack-php/issues",
-                "source": "https://github.com/heroku/heroku-buildpack-php/tree/v257"
+                "source": "https://github.com/heroku/heroku-buildpack-php/tree/v259"
             },
-            "time": "2024-09-27T16:46:12+00:00"
+            "time": "2024-11-22T04:46:43+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2",
         "ext-mysqli": "*",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "ext-gd": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

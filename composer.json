@@ -5,7 +5,8 @@
     "require": {
         "php": "^8.2",
         "ext-mysqli": "*",
-        "ext-mbstring": "*"
+        "ext-mbstring": "*",
+        "ext-gd": "*"
     },
     "require-dev": {
         "heroku/heroku-buildpack-php": "*"

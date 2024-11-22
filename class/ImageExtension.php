@@ -62,8 +62,8 @@ class ImageExtension
             $maxTargetSizeKB = 300;  // MAXサイズ 300KB
             $afterCompressionImageData = $this->compression->compressImage($sourceImage, $targetSizeKB, $maxTargetSizeKB);
             if($afterCompressionImageData === false){
-                // $this->message->impossibleFileSize(self::MENU_IMTAGE);
-                $this->imageData = $afterCompressionImageData;
+                $this->message->impossibleFileSize(self::MENU_IMTAGE);
+                // $this->imageData = $afterCompressionImageData;
 
             }else{
                 $this->imageData = $afterCompressionImageData;
