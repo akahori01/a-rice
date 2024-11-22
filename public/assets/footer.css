@@ -24,7 +24,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        list-style-type: none;  /* ★2:リストの先頭記号を消す */
+        list-style-type: none;  /* リストの先頭記号を消す */
         font-size: 20px;
         text-align: center;
         border: 1px solid #8B4513;
@@ -61,7 +61,7 @@
     }
 
     .footer-mobile {
-        display: none;         /* ★5:非表示にする */
+        display: none;         /* 非表示にする */
     }
 }
 

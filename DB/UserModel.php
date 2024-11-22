@@ -234,10 +234,4 @@ class SelectUserModel
     {
         return $this->toUserId;
     }
-    /* user_pointアップデート用
-    public function addPointUpdate($updateValue)
-    {
-        $this->update->updateUserPoint($updateValue, $this->userId);
-    }
-    */
 }

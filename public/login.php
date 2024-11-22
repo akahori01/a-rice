@@ -93,5 +93,3 @@ if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] ==
     <?php $_SESSION[ConstApp::LOGIN_MESSAGE] = '' ?>
 </body>
 </html>
-
-<?php

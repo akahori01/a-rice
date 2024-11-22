@@ -248,7 +248,6 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
                                             ?>
                                                 <form action="" method="post">
                                                     <li class="lower-right"><button name="reset" value="<?= $orderData[$i]->getOrderId(). ','. $orderData[$i]->getLargeOrderGroup(). ','. $orderData[$i]->getDeliverydate(). ',before' ?>" onclick="return confirm('150kg以上の商品をまとめて削除してもよろしいですか?')">購入キャンセル</button></li>
-                                                    <!-- $orderIds. ','. $orderData[$i]->getDeliverydate(). ',before' -->
                                                 </form>
                                             <?php endif ?>
                                         </ul>
@@ -571,8 +570,7 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
         <div class="inquiry">
             <ul>
                 <li>お困りの際は下記番号へご連絡下さい</li>
-                <li>080-wwww-wwww</li>
-                <!-- 押すと電話できるようにする -->
+                <li>090-5864-0837</li>
             </ul>
         </div>
         <?php $_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::MYPAGE] = [] ?>

@@ -147,7 +147,6 @@ class LoginWay{
         // セッション内を空にし、ログイン状態を判断するuser_idをセッションへ代入
         $_SESSION = [];
         $_SESSION[ConstApp::SIGNUP_USER_ID] = $userId;
-        // $_SESSION[ConstApp::LOGIN_MESSAGE] = 'ログインしました';
         $loginMessage = 'ログインしました';
         setcookie('login_message', $loginMessage, time() + 10, '/');
         session_regenerate_id(true);

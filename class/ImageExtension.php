@@ -63,8 +63,6 @@ class ImageExtension
             $afterCompressionImageData = $this->compression->compressImage($sourceImage, $targetSizeKB, $maxTargetSizeKB);
             if($afterCompressionImageData === false){
                 $this->message->impossibleFileSize(self::MENU_IMTAGE);
-                // $this->imageData = $afterCompressionImageData;
-
             }else{
                 $this->imageData = $afterCompressionImageData;
             }

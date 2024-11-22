@@ -25,22 +25,18 @@ img {
 }
 
 .itemlist-bigpc {
-    /* 4 */
     width: 400px;
     height: auto;
 }
 .itemlist-smallpc {
-    /* 3 */
     width: 330px;
     height: auto;
 }
 .itemlist-tablet {
-    /* 2 */
     width: 230px;
     height: auto;
 }
 .itemlist-mobile {
-    /* 2 */
     width: 160px;
     height: auto;
 }
@@ -60,5 +56,3 @@ img {
     width: 200px;
     height: auto;
 }
-
-

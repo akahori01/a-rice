@@ -402,7 +402,6 @@ class SignUp
 
     public function update($id_on_data, $IPaddress, $url)
     {
-        // var_dump($this->datas[ConstApp::SIGNUP_SECRET][ConstApp::SIGNUP_PASSWORD_HASH]);
         $this->update->updateUserInfo($this->datas, $id_on_data, $IPaddress, $url);
     }
 

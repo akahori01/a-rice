@@ -17,7 +17,7 @@
 
 
 <!-- ローカル用 -->
-<!-- 
+<!--
 <ul class="footer-mobile">
     <li><a href="../public/index.php"><img src="../public/library/shopping.png" alt="買い物">商品購入</a></li>
     <li><a href="../public/login.php"><img src="../public/library/login.png" alt="ログイン">ログイン</a></li>

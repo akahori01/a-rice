@@ -221,5 +221,4 @@ array_push($menus, $menu);
     $_SESSION['image']['type'] = $_SESSION['image'][$i]['type'];
     $_SESSION['image']['data'] = $_SESSION['image'][$i]['data'];
 ?>
-
 </html>
