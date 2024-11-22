@@ -61,7 +61,7 @@ $_SESSION['image'] = [];
 
 $menu = new MenuInstance();
 $menus = $menu->moneyMenu();
-$menus = empty($menus) ? $menus : [];
+$menus = empty($menus) ? [] : $menus;
 
 if (isset($_SESSION['data']['checkDay']))
 {
