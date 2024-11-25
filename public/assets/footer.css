@@ -1,6 +1,11 @@
 @media screen and (max-width:479px) {
     /* for iPhone Landscape (iPhone 縦) */
-  .footer-mobile {
+
+    footer {
+        padding-bottom: 60px;
+    }
+
+    .footer-mobile {
         margin: 0px;
         padding: 0px;
         width: 100%;
