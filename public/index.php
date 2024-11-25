@@ -71,13 +71,13 @@ $_SESSION[ConstApp::SIGNUP_DATA] = [];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="赤堀産のおいしいお米を通販で御前崎市・菊川市・掛川市配送!!A-Rice公式サイトでは、高品質で美味しいお米を安心価格でお届けします。">
-    <meta name="keywords" content="赤堀, お米, 通販, 高品質, 安心価格">
+    <meta name="keywords" content="赤堀, コシヒカリ, 配送, お米, 通販, 高品質, 安心価格">
     <link rel="stylesheet" href="./assets/index.css">
     <link rel="stylesheet" href="./assets/notLoginHeader.css">
     <link rel="stylesheet" href="./assets/loginHeader.css">
     <link rel="stylesheet" href="./assets/footer.css">
     <link rel="stylesheet" href="./assets/same.css">
-    <title>コシヒカリなら赤堀産地【高品質米通販】A-Rice公式サイト</title>
+    <title>お米を買うなら赤堀産地のコシヒカリ【A-Rice公式サイト】</title>
 </head>
 <body>
     <?php if (isset($_SESSION[ConstApp::SIGNUP_USER_ID])): ?>
