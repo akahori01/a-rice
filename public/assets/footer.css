@@ -2,7 +2,8 @@
     /* for iPhone Landscape (iPhone 縦) */
 
     footer {
-        padding-bottom: 60px;
+        padding-bottom: 30px;
+        background-color: #ffffff;
     }
 
     .footer-mobile {
