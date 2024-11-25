@@ -147,7 +147,9 @@ $_SESSION[ConstApp::SIGNUP_DATA] = [];
             <?php endfor ?>
             <?php endif ?>
         </div>
-        <p><a href="largelot-index.php">150kg以上のお米を一度に注文される方はこちら</a></p>
+        <div class="largelot">
+            <p><a href="largelot-index.php">150kg以上のお米を一度に注文される方はこちら</a></p>
+        </div>
         <div class="message">
                 <p style="color: red;"><?= isset($_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::ORDER]) ? $_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::ORDER] : '' ?></p>
         </div>
@@ -157,7 +159,7 @@ $_SESSION[ConstApp::SIGNUP_DATA] = [];
             </div>
             <div class="notes">
                 <ul style="color: red;">＜お願い＞
-                    <li>当日注文・配達の場合はLINEで<br>(良彦又は、恵子)へご連絡下さい</li>
+                    <li>当日注文・配達の場合はLINEで<br><a href="inquiry.php">(良彦又は、恵子)へご連絡下さい</a></li>
                     <li>17:00以降の配達になります</li>
                     <li>定休日 → <span class="hurry-holiday"></span></li>
                 </ul>
@@ -189,6 +191,12 @@ $_SESSION[ConstApp::SIGNUP_DATA] = [];
                 <div class="serch">
                     <button type="submit" name="index_token" value="<?= $randomId ?>">購入詳細画面へ</button>
                     <p style="color: red;"><?= $_SESSION['message']['riceCount'] ?? '' ?></p>
+                </div>
+                <div class="notes">
+                    <ul>
+                        <li>※支払い方法、現金のみ</li>
+                        <li>※購入キャンセル、お届け日の前日まで</li>
+                    </ul>
                 </div>
                 </form>
         </div>

@@ -112,6 +112,12 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
                 <a href="admin/index.php">商品の追加・削除 、 又は休日の追加・削除はこちら</a>
             </div>
         <?php endif ?>
+        <div class="notes">
+            <ul>
+                <li>※支払い方法、現金のみ</li>
+                <li>※購入キャンセル、お届け日の前日まで</li>
+                <li>※当日でのキャンセルは、<a href="inquiry.php">ご連絡ください</a></li>
+            </ul>
         <div class="purchase-history">
             <p style="color: red;"><?= isset($_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::MYPAGE]) && !empty($_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::MYPAGE]) ? $_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::MYPAGE] : '' ?></p>
             <tables>

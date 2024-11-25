@@ -18,6 +18,7 @@ main {
 .container {
     display: inline-block;
     border: 1px solid black;
+    margin-bottom: 20px;
 }
 
 .edit-forms {
@@ -35,4 +36,7 @@ main {
 
 .edit-forms button {
     padding: 10px 20px;
+}
+main h4 {
+    margin: 0px 0px 10px 0px;
 }

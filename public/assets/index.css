@@ -77,11 +77,14 @@ main .container {
 }
 
 .char select {
-    width: 40px;
+    width: 60px;
     height: 30px;
     font-size: 20px;
 }
 
+main .largelot {
+    text-align: center;
+}
 
 .message p {
     margin-top: 50px;
@@ -188,7 +191,8 @@ main .container {
 }
 
 .serch button {
-    background-color: #EEFFFF;
+    color: black;
+    background-color: #B6FF01;
     font-weight: bold;
     font-size: large;
     padding: 10px 15px;

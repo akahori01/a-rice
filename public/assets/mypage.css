@@ -137,6 +137,16 @@ p {
 .admin-page {
     text-align: center;
 }
+.notes ul {
+    text-align: center;
+    padding-left: 0px;
+}
+.notes li {
+    list-style-type: none;
+    color: black;
+}
+
+
 /* メディアクエリ */
 @media screen and (min-width:480px) and (max-width:1024px) {
     /* for iPad */

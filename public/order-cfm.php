@@ -177,7 +177,9 @@ $_SESSION['order_cfm_token'] = $randomId;
                 <?php $_SESSION[ConstApp::SIGNUP_DATA]['menus'] = $allMenu ?>
             <?php endif ?>
         </div>
-        <h3>お届け日: <?= $calendar->getCheckDay() ?></h3>
+        <h4>支払い方法: 現金</h4>
+        <h4>キャンセル日時: お届け日前日まで</h4>
+        <h4>お届け日: <?= $calendar->getCheckDay() ?></h4>
         <h2><?= $menu->getTotalCostFormat() ?></h2>
         <div class="edit-forms">
             <?php if(isset($_POST['index_token'])): ?>

@@ -1,6 +1,19 @@
 @charset "UTF-8";
 
 
-.container p {
+main .container p {
     text-align: center;
+}
+
+main .container .image {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center; /*左右中央揃え*/
+    align-items: center;
+}
+
+main .container img {
+    width: 200px;
+    height: auto;
 }
