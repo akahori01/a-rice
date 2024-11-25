@@ -2,7 +2,7 @@
     "name": "A-Rice 公式サイト",
     "short_name": "A-Rice",
     "description": "赤堀産地のコシヒカリを配送！",
-    "start_url": "/public/index.php",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#4CAF50",
