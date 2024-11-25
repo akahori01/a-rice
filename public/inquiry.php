@@ -57,7 +57,10 @@ if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] ==
         </div>
         <div class="container">
             <p>TEL : 090-5864-0837 (赤堀 良彦：ｱｶﾎﾘ ﾖｼﾋｺ)</p>
-            <p>LINE QRコード ☞ <img src="/library/2022.08.06.083228.jpeg" alt="赤堀良彦LINE QRコード"></p>
+            <!-- サーバー用 -->
+            <p>LINE QRコード ☞ <img src="/library/LINE-QR.jpg" alt="赤堀良彦LINE-QRコード"></p>
+            <!-- ローカル用 -->
+            <!-- <p>LINE QRコード ☞ <img src="/rice-project/public/library/LINE-QR.jpg" alt="赤堀良彦LINE-QRコード"></p> -->
         </div>
     </main>
     <?php if (isset($_SESSION[ConstApp::SIGNUP_USER_ID])): ?>
