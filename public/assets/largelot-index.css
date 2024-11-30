@@ -204,7 +204,8 @@ ul.result li{
 }
 
 .serch button {
-    background-color: #EEFFFF;
+    color: black;
+    background-color: #B6FF01;
     font-weight: bold;
     font-size: large;
     padding: 10px 15px;
@@ -215,8 +216,6 @@ ul.result li{
     background-color:#44FFFF; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
     color: white;            /* サブメニュー項目にマウスが載ったときの文字色(濃い緑色) */
 }
-
-
 
 
 

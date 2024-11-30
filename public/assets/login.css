@@ -12,6 +12,7 @@
 }
 
 .login-form input {
+    width: 100%;
     border: none;
     border-bottom: 1px solid black;
     outline: none;
@@ -68,11 +69,17 @@
     a .indention {
         display: none;
     }
+    .login-form input {
+        width: 350px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
     a .indention {
         display: none;
+    }
+    .login-form input {
+        width: 350px;
     }
 }
 

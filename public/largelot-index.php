@@ -219,7 +219,7 @@ $PriceRice30 = number_format($rice30). '円';
                     <p style="color: red;"><?= isset($_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::CALENDAR]) ? $_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::CALENDAR] : '' ?></p>
                 </div>
                 <div class="serch">
-                    <button type="submit" name="largelot_index_token" value="<?= $randomId ?>">購入詳細画面へ</button>
+                    <button type="submit" name="largelot_index_token" value="<?= $randomId ?>">購入確認画面へ</button>
                     <p style="color: red;"><?= $_SESSION['message']['riceCount'] ?? '' ?></p>
                 </div>
                 </form>
