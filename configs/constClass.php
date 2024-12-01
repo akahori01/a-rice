@@ -15,7 +15,7 @@ class ConstClass
     // Check.php
     const RESULT_TRUE = 1;
     const MIN_LENGTH = 8;
-    const MAX_LENGTH = 20;
+    const MAX_LENGTH = 30;
     const PREFECTURE = '静岡県';
     const CITY1 = '御前崎市';
     const CITY2 = '菊川市';
@@ -34,7 +34,7 @@ class ConstClass
     const NOT_USE_ENCODING = 'エンコーディグ(UTF-8)にしてから入力して下さい';
     const NOT_MODEL_NAME_ALL = '全ての入力欄は型名が違います';
     const NOT_MODEL_NAME = '型名が違います';
-    const CHARACTERS_NOT_USED = '30文字以内で入力してください。改行やタブな・記号は使用できません';
+    const CHARACTERS_NOT_USED = '30文字以内で入力してください。記号は使用できません(ハイフンのみ使用可能)';
     const INPUT_MISS = '記入内容が正しくありません';
     const OUT_OF_RANGE = '運搬範囲外の住所です';
     const VIOLATION_CHAR = '半角英字と半角数字の両方を組み合わせて下さい';

@@ -52,7 +52,8 @@ class Check
     // 氏名や住所等の文字種制限がない場合
     public function textboxcheck($text): bool
     {
-        return (self::RESULT_TRUE === preg_match('/\A[[:^cntrl:]]{1,30}\z/u', $text));
+        // return (self::RESULT_TRUE === preg_match('/\A[[:^cntrl:]]{1,30}\z/u', $text));
+        return (self::RESULT_TRUE === preg_match('/\A[\p{Hiragana}\p{Katakana}\p{Han}a-zA-Z0-9\-\ー－]{1,30}\z/u', $text));
     }
 
 
@@ -90,13 +91,20 @@ class Check
     }
 
     // 引数が半角の英字と数字の両方を含んでいるかチェック関数
-    public function useEnglishAndIntegerHalfSize($value): bool
+    public function regularExpressionForUserid($value): bool
+    {
+        $v = strval($value);
+        return (self::RESULT_TRUE === preg_match('/\A(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9](?:[a-zA-Z0-9]|[_.@-](?=[a-zA-Z0-9])){1,28}[a-zA-Z0-9]\z/u', $v));
+    }
+
+    // 引数が半角の英字と数字の両方を含んでいるかチェック関数
+    public function regularExpressionForPassword($value): bool
     {
         $v = strval($value);
         return (self::RESULT_TRUE === preg_match('/\A[a-zA-Z0-9]+\z/u', $v) && self::RESULT_TRUE === preg_match('/[a-zA-Z]+/u', $v) && self::RESULT_TRUE === preg_match('/[0-9]+/u', $v));
     }
 
-    // パスワードが8文字以上20文字以下のチェック関数
+    // パスワードが8文字以上30文字以下のチェック関数
     public function valueLength($password): bool
     {
         return self::MIN_LENGTH <= strlen(strval($password)) && strlen(strval($password)) <= self::MAX_LENGTH;

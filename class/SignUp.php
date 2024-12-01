@@ -249,7 +249,7 @@ class SignUp
                     }
                     break;
                 case self::SIGNUP_USER_ID:
-                    if(!$this->check->useEnglishAndIntegerHalfSize($value)){
+                    if(!$this->check->regularExpressionForUserid($value)){
                         $this->message->pushViolationChar($key);
                         unset($this->datas[$key]);
                     } elseif(!$this->check->valueLength($value)){
@@ -271,7 +271,7 @@ class SignUp
                     }
                     break;
                 case self::SIGNUP_PASSWORD:
-                    if(!$this->check->useEnglishAndIntegerHalfSize($value)){
+                    if(!$this->check->regularExpressionForPassword($value)){
                         $this->message->pushViolationChar($key);
                         unset($this->datas[$key]);
                     } elseif(!$this->check->valueLength($value)){

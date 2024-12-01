@@ -118,7 +118,7 @@ $_SESSION['first_signup_token'] = $randomId;
                     <ul>
                         <li class="under-line">ユーザーID</li>
                         <li class="small-font">※次回ログイン時に必要です</li>
-                        <li class="small-font">※半角英語と半角数字の両方を用い,<span class="indention"></span>記号無しの8文字以上20文字以下</li>
+                        <li class="small-font">※半角の英語と数字の両方を用い8文字以上30文字以下<br>記号は( . _ - @ )を使用できますが、記号を連続して入力や<br>文頭や文末に記号は使用できません</li>
                         <li class="warning"><?= isset($_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::SIGNUP_USER_ID]) ? $_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::SIGNUP_USER_ID] : '' ?></li>
                         <li><input type="text" name="userId" size="30" autocorrect="off" autocapitalize="off" value="<?= isset($_SESSION[ConstApp::SIGNUP_DATA][ConstApp::SIGNUP_USER_ID]) ? $_SESSION[ConstApp::SIGNUP_DATA][ConstApp::SIGNUP_USER_ID] : '' ?>" required></li>
                     </ul>
@@ -127,7 +127,7 @@ $_SESSION['first_signup_token'] = $randomId;
                     <ul>
                         <li class="under-line">パスワード</li>
                         <li class="small-font">※次回ログイン時に必要です</li>
-                        <li class="small-font">※半角英語と半角数字の両方を用い,<span class="indention"></span>記号無しの8文字以上20文字以下</li>
+                        <li class="small-font">※半角の英語と数字の両方を用い8文字以上30文字以下<br>記号は使用できません</li>
                         <li class="warning"><?= isset($_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::SIGNUP_PASSWORD]) ? $_SESSION[ConstApp::SIGNUP_MESSAGE][ConstApp::SIGNUP_PASSWORD] : '' ?></li>
                         <li><input type="password" name="password" size="30" autocorrect="off" autocapitalize="off" value="<?= isset($_SESSION[ConstApp::SIGNUP_DATA][ConstApp::SIGNUP_PASSWORD]) ? $_SESSION[ConstApp::SIGNUP_DATA][ConstApp::SIGNUP_PASSWORD] : '' ?>" required></li>
                     </ul>
