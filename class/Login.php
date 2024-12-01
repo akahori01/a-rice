@@ -45,14 +45,14 @@ class Login
         if ($this->check->telCheck($this->datas[self::SIGNUP_USER_ID])){
             foreach ($this->datas as $key => $value){
                 $this->result[] = $this->check->blankCheck($value);
-                $this->result[] = $this->check->useEnglishAndIntegerHalfSize($value);
+                $this->result[] = $this->check->regularExpressionForPassword($value);
                 $this->result[] = $this->check->valueLength($value);
             }
             $this->selectTelPassword();
         } else{
             foreach ($this->datas as $key => $value){
                 $this->result[] = $this->check->blankCheck($value);
-                $this->result[] = $this->check->useEnglishAndIntegerHalfSize($value);
+                $this->result[] = $this->check->regularExpressionForPassword($value);
                 $this->result[] = $this->check->valueLength($value);
             }
             $this->selectUserIdPassword();

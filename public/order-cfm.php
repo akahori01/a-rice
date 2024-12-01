@@ -39,7 +39,6 @@ if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] ==
 }
 
 
-
 if (isset($_POST['index_token']) && $_SESSION['index_token'] === $_POST['index_token']) {
     // ↓商品がセットされているか判断している
     for ($i = 0; $i < 100; $i++){
@@ -50,6 +49,10 @@ if (isset($_POST['index_token']) && $_SESSION['index_token'] === $_POST['index_t
         } else{
             break;
         }
+    }
+    if(!isset($counts)){
+        header("Location: index.php");
+        exit();
     }
     $order = new Order();
     $order->setCounts($counts);

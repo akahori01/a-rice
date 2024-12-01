@@ -51,10 +51,10 @@ class order
         $elementNum = count($this->counts);
         // $this->counts の value から NONE_MENU=0 を含む key を $noneMenuNumへ
         $noneMenuNum = count(array_keys($this->counts, ConstClass::NONE_MENU, true));
-        if ($elementNum !== $noneMenuNum){
+        if ($elementNum === $noneMenuNum){
+            $this->setMessage(__FUNCTION__);
             return;
         } else{
-            $this->setMessage(__FUNCTION__);
             return;
         }
     }
