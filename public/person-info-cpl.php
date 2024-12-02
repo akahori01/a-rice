@@ -102,6 +102,8 @@ $howToLogin->firstLogin($signup->setUserId());
     <link rel="stylesheet" href="./assets/loginHeader.css">
     <link rel="stylesheet" href="./assets/footer.css">
     <link rel="stylesheet" href="./assets/same.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/library/apple-touch-icon.png"> <!-- iOS専用 -->
+    <link rel="manifest" href="/site.webmanifest"> <!-- PWA用 -->
     <title>個人情報変更完了画面</title>
 </head>
 <body>
