@@ -99,6 +99,8 @@ $PriceRice30 = number_format($rice30). '円';
     <link rel="stylesheet" href="./assets/loginHeader.css">
     <link rel="stylesheet" href="./assets/footer.css">
     <link rel="stylesheet" href="./assets/same.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/library/apple-touch-icon.png"> <!-- iOS専用 -->
+    <link rel="manifest" href="/site.webmanifest"> <!-- PWA用 -->
     <script>
         function CalculationResult(){
             let num5 = parseInt(document.getElementById('num5').value) || 0;

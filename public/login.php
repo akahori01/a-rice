@@ -49,7 +49,9 @@ if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] ==
     <link rel="stylesheet" href="./assets/loginHeader.css">
     <link rel="stylesheet" href="./assets/footer.css">
     <link rel="stylesheet" href="./assets/same.css">
-    <title>登録者済み専用ログインページ</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/library/apple-touch-icon.png"> <!-- iOS専用 -->
+    <link rel="manifest" href="/site.webmanifest"> <!-- PWA用 -->
+    <title>ログインページ</title>
 </head>
 <body>
     <?php if (isset($_SESSION['user_id'])): ?>

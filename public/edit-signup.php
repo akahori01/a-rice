@@ -86,6 +86,8 @@ $_SESSION['edit_signup_token'] = $randomId;
     <link rel="stylesheet" href="./assets/loginHeader.css">
     <link rel="stylesheet" href="./assets/footer.css">
     <link rel="stylesheet" href="./assets/same.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/library/apple-touch-icon.png"> <!-- iOS専用 -->
+    <link rel="manifest" href="/site.webmanifest"> <!-- PWA用 -->
     <title>新規登録確認画面</title>
 </head>
 <body>

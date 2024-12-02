@@ -40,6 +40,8 @@ if (isset($_POST['logout']) && isset($_SESSION['logout']) && $_POST['logout'] ==
     <link rel="stylesheet" href="./assets/loginHeader.css">
     <link rel="stylesheet" href="./assets/footer.css">
     <link rel="stylesheet" href="./assets/same.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/library/apple-touch-icon.png"> <!-- iOS専用 -->
+    <link rel="manifest" href="/site.webmanifest"> <!-- PWA用 -->
     <title>お問い合わせ</title>
 </head>
 <body>

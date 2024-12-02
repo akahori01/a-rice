@@ -1,8 +1,5 @@
 <!-- サーバー用 -->
-<head>
-    <link rel="apple-touch-icon" sizes="180x180" href="/library/apple-touch-icon.png"> <!-- iOS専用 -->
-    <link rel="manifest" href="../site.webmanifest"> <!-- PWA用 -->
-</head>
+
 <div class="hamburger-menu">
     <input type="checkbox" id="menu-btn-check">
     <label for="menu-btn-check" class="menu-btn"><span></span></label>
