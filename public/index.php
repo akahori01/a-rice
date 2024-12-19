@@ -117,6 +117,7 @@ $_SESSION[ConstApp::SIGNUP_DATA] = [];
                 <?php $_SESSION['image'][$menuId]['type'] = $menus[$i]->getMimeType() ?>
                 <?php $_SESSION['image'][$menuId]['data'] = $menus[$i]->getImageData() ?>
                 <?php $_SESSION['image'][$menuId]['last_modified'] = $menus[$i]->getUpdated_at() ?>
+                <?php echo $_SESSION['image'][$menuId]['data'] ?>
                 <div class="container">
                     <form action="./menu-detail.php" method="GET">
                     <div class="image">
