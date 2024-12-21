@@ -19,6 +19,18 @@ class InsertMenu
     public function insertMenuTable(array $datas, string $imagePass, $imageData, string $mimeType)
     {
         $pdo = self::connect();
+        // Herokuの環境変数から接続情報を解析
+        $database_url = getenv('DATABASE_URL');
+        $db = parse_url($database_url);
+        $host = $db['host'];
+        $port = $db['port'];
+        $user = $db['user'];
+        $password = $db['pass'];
+        $dbname = ltrim($db['path'], '/');
+
+        // 接続リソースを作成
+        $connection = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
+
         $statement = $pdo->prepare(
             "INSERT INTO menu_info (business_set, menu_image_pass, menu_image_data, image_mime_type, menu_name, menu_cost, menu_weight, menu_category, menu_unit, comment_top, comment_bottom, notes, created_at, updated_at)
             VALUES(:businessSet, :menuImagePass, :menuImageData, :imageMimeType, :menuName, :menuCost, :menuWeight, :menuCategory, :menuUnit, :commentTop, :commentBottom, :notes, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)"
@@ -57,7 +69,7 @@ class InsertMenu
             }
         }
         $statement->bindValue(':menuImagePass', $imagePass, PDO::PARAM_STR);
-        $statement->bindValue(':menuImageData', pg_escape_bytea($imageData), PDO::PARAM_LOB);
+        $statement->bindValue(':menuImageData', pg_escape_bytea($connection, $imageData), PDO::PARAM_LOB);
         $statement->bindValue(':imageMimeType', $mimeType, PDO::PARAM_STR);
         $statement->execute();
     }
