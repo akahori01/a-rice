@@ -16,7 +16,7 @@ class InsertMenu
 
     use PdoForm;
 
-    public function insertMenuTable(array $datas, string $imagePass, string $imageData, string $mimeType)
+    public function insertMenuTable(array $datas, string $imagePass, $imageData, string $mimeType)
     {
         $pdo = self::connect();
         $statement = $pdo->prepare(
@@ -57,7 +57,7 @@ class InsertMenu
             }
         }
         $statement->bindValue(':menuImagePass', $imagePass, PDO::PARAM_STR);
-        $statement->bindValue(':menuImageData', $imageData, PDO::PARAM_LOB);
+        $statement->bindValue(':menuImageData', pg_escape_bytea($imageData), PDO::PARAM_LOB);
         $statement->bindValue(':imageMimeType', $mimeType, PDO::PARAM_STR);
         $statement->execute();
     }
