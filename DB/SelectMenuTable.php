@@ -32,6 +32,14 @@ class SelectMenuTable
         $statement->execute();
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
         {
+             // バイナリデータを取り出す
+            $imageData = $row['menu_image_data'];
+            // バイナリデータを適切に処理（例：保存、表示など）
+            if ($imageData) {
+                // ここでバイナリデータを利用する処理を行う
+                // 例: メモリ内で処理
+                $row['menu_image_data'] = $imageData;
+            }
             $rows[] = $row;
         }
         if(isset($rows)){
