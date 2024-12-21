@@ -27,7 +27,7 @@ if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isse
     $image = $_SESSION['image'][$_GET['id']];
 
     // ETagの作成（画像データのMD5ハッシュ）
-    $etag = md5(pg_unescape_bytea($image['data']));
+    $etag = md5($image['data']);
     $lastModified = strtotime($image['last_modified']);
 
 
@@ -72,7 +72,7 @@ if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isse
 
     // 画像データを出力
     unset($_SESSION['image'][$_GET['id']]);
-    echo pg_unescape_bytea($image['data']);
+    echo $image['data'];
 } else {
     // 画像が存在しない場合の処理
     echo '';
