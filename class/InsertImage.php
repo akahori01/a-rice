@@ -5,19 +5,19 @@ class InsertImage
     public $imageType;
     public $imagePass;
     public $newImagePass;
-    public $imageData;
+    // public $imageData;
 
-    public function __construct($imageType, $imagePass, $imageData)
+    public function __construct($imageType, $imagePass)
     {
         $this->imageType = $imageType;
         $this->imagePass = $imagePass;
-        $this->imageData = $imageData;
+        // $this->imageData = $imageData;
     }
 
     public function insertLibrary()
     {
         $this->newImagePass = self::changeImagePass();
-        self::moveImage();
+        // self::moveImage();
     }
 
     private function changeImagePass()
@@ -29,10 +29,10 @@ class InsertImage
         return $newImagePass;
     }
 
-    public function moveImage()
-    {
-        file_put_contents(__DIR__. '/../public/'. $this->newImagePass, $this->imageData);
-    }
+    // public function moveImage()
+    // {
+    //     file_put_contents(__DIR__. '/../public/'. $this->newImagePass, $this->imageData);
+    // }
     public function getImagePass()
     {
         return $this->newImagePass;
