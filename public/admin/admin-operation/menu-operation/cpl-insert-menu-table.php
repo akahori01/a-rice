@@ -42,7 +42,7 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
 
 $menu = new MenuMoney($_SESSION['data']);
 $menu->convertSaveMenuDatabase();
-$image = new InsertImage($_SESSION['image']['type'], $_SESSION['image']['tmp_name']);
+$image = new InsertImage($_SESSION['image']['type'], $_SESSION['image']['tmp_name'], $_SESSION['image']['data']);
 $image->insertLibrary();
 $insert = new InsertMenu();
 $insert->insertMenuTable($menu->getDatas(), $image->getImagePass(), $_SESSION['image']['data'], $_SESSION['image']['type']);
