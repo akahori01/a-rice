@@ -51,7 +51,6 @@ class SelectMenuTable
         $pdo = self::connect();
         $statement = $pdo->prepare("SELECT * FROM menu_info");
         $statement->execute();
-        $row = $statement->fetchAll(PDO::FETCH_ASSOC);
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
             if ($row['menu_image_data']) {
                 $row['menu_image_data'] = stream_get_contents($row['menu_image_data']);
