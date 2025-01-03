@@ -43,7 +43,6 @@ if (isset($_GET['menu-detail']) && preg_match('/\A[0-9]+\z/u', $_GET['menu-detai
     header('Location: error.php');
     exit();
 }
-var_dump('あ');
 $menuModel = new MenuModel();
 $menuDatabaseAll = $menuModel->menuAll()->getAll();
 foreach($menuDatabaseAll as $menuDatabase){
@@ -51,33 +50,27 @@ foreach($menuDatabaseAll as $menuDatabase){
         $menuInstance = new MenuMoney($menuDatabase);
         $menuInstance->make();
         $instanceMenuAll[] = $menuInstance;
-        var_dump('い');
     }elseif ($menuDatabase['business_set'] === 1){
         $menuInstance = new MenuPoint($menuDatabase);
         $menuInstance->make();
         $instanceMenuAll[] = $menuInstance;
-        var_dump('う');
     }
 }
 foreach ($instanceMenuAll as $key => $menuInstance){
     if (intval($menuId) !== $menuInstance->getMenuId()){
         unset($instanceMenuAll[$key]);
-        var_dump('え');
     } else{
         $choiceMenu = $menuInstance;
-        var_dump($choiceMenu);
     }
 
 }
-// if (!isset($choiceMenu)){
-//     header('Location: error.php');
-// }
-var_dump('お');
+if (!isset($choiceMenu)){
+    header('Location: error.php');
+}
 $_SESSION['image'] = [];
 $_SESSION['image'][$menuId]['type'] = $choiceMenu->getMimeType();
 $_SESSION['image'][$menuId]['data'] = $choiceMenu->getImageData();
 $_SESSION['image'][$menuId]['last_modified'] = $choiceMenu->getUpdated_at();
-var_dump('か');
 ?>
 <!DOCTYPE html>
 <html lang="en">
