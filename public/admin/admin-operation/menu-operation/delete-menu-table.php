@@ -44,6 +44,7 @@ if (isset($_POST['delete-id'])){
     $menuclass->deleteMenu($_POST['delete-id']);
 }
 $menus = $databaseMenu->moneyMenu();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,12 +71,10 @@ $menus = $databaseMenu->moneyMenu();
         <div class="container">
             <div class="frame">
                 <ul>
-                    <?php if (isset($menu->datas['menu_image_pass'])): ?>
-                        <!-- ↓相対パスのみじゃないから表示されないよ -->
-                    <li><img src="<?= $menu->datas['menu_image_pass'] ?>" alt=""></li>
-                    <?php else: ?>
-                    <li><a class="box-link" href="display-image.php" target="blank"><?= isset($imageName) ? $imageName : $image->getImageName() ?></a></li>
-                    <?php endif ?>
+                <?php $menuId = $menu->getMenuId() ?>
+                <?php $_SESSION['image'][$menuId]['type'] = $menu->getMimeType() ?>
+                <?php $_SESSION['image'][$menuId]['data'] = $menu->getImageData() ?>
+                <li><img src="insert-image.php?id=<?= $menuId ?>" alt=""></li>
                 </ul>
             </div>
             <div class="char">
