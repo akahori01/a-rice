@@ -19,6 +19,9 @@ class SelectOrderTable{
         $statement->bindValue(':untilDay', $untilDay, PDO::PARAM_STR);
         $statement->execute();
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
+            if ($row['menu_image_data']) {
+                $row['menu_image_data'] = stream_get_contents($row['menu_image_data']);
+            }
             $rows[] = $row;
         }
         if (isset($rows)){
@@ -37,6 +40,9 @@ class SelectOrderTable{
         $statement->bindValue(':user_id', $userId, PDO::PARAM_INT);
         $statement->execute();
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
+            if ($row['menu_image_data']) {
+                $row['menu_image_data'] = stream_get_contents($row['menu_image_data']);
+            }
             $rows[] = $row;
         }
         if (isset($rows)){
@@ -84,6 +90,9 @@ class SelectOrderTable{
         $statement->bindValue(':untilDay', $untilDay, PDO::PARAM_STR);
         $statement->execute();
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
+            if ($row['menu_image_data']) {
+                $row['menu_image_data'] = stream_get_contents($row['menu_image_data']);
+            }
             $rows[] = $row;
         }
         if (isset($rows)){
@@ -103,6 +112,9 @@ class SelectOrderTable{
             );
         $statement->execute();
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
+            if ($row['menu_image_data']) {
+                $row['menu_image_data'] = stream_get_contents($row['menu_image_data']);
+            }
             $rows[] = $row;
         }
         if (isset($rows)){
