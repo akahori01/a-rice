@@ -29,7 +29,7 @@ class UpdatePdo
             $pdo = self::connect();
             $pdo->beginTransaction();
             $statement = $pdo->prepare(
-                "UPDATE `user_info` SET `user_id` = :userId, `name` = :name, `address` = :address, `postal_code` = :postalCode, `tel` = :tel, `user_id_iv` = :userIdIv, `name_iv` = :nameIv, `address_iv` = :addressIv, `postal_code_iv` = :postalCodeIv, `tel_iv` = :telIv, `password` = :passwordHash WHERE `id` = :id"
+                "UPDATE user_info SET user_id = :userId, name = :name, address = :address, postal_code = :postalCode, tel = :tel, user_id_iv = :userIdIv, name_iv = :nameIv, address_iv = :addressIv, postal_code_iv = :postalCodeIv, tel_iv = :telIv, password = :passwordHash WHERE id = :id"
             );
             foreach ($newDatas[self::SIGNUP_SECRET] as $key => $value){
                 switch ($key){

@@ -9,8 +9,8 @@ class SelectOrderTable{
     {
         $pdo = self::connect();
         $statement = $pdo->prepare(
-            "SELECT * FROM `{$tableName}` INNER JOIN `order_info` ON menu_info.menu_id = order_info.menu_id
-            WHERE `user_id` = :user_id
+            "SELECT * FROM {$tableName} INNER JOIN order_info ON menu_info.menu_id = order_info.menu_id
+            WHERE user_id = :user_id
             AND order_info.delivery_date BETWEEN :fromDay AND :untilDay
             ORDER BY order_info.delivery_date"
             );
@@ -31,8 +31,8 @@ class SelectOrderTable{
     {
         $pdo = self::connect();
         $statement = $pdo->prepare(
-            "SELECT * FROM `{$tableName}` INNER JOIN `order_info` ON menu_info.menu_id = order_info.menu_id
-            WHERE `user_id` = :user_id ORDER BY order_info.delivery_date"
+            "SELECT * FROM {$tableName} INNER JOIN order_info ON menu_info.menu_id = order_info.menu_id
+            WHERE user_id = :user_id ORDER BY order_info.delivery_date"
             );
         $statement->bindValue(':user_id', $userId, PDO::PARAM_INT);
         $statement->execute();
@@ -49,7 +49,7 @@ class SelectOrderTable{
     {
         $pdo = self::connect();
         $statement = $pdo->prepare(
-            "SELECT MAX(large_order_group) FROM `{$tableName}`"
+            "SELECT MAX(large_order_group) FROM {$tableName}"
             );
         $statement->execute();
         $row = $statement->fetch(PDO::FETCH_ASSOC);
@@ -60,7 +60,7 @@ class SelectOrderTable{
     {
         $pdo = self::connect();
         $statement = $pdo->prepare(
-            "SELECT `order_id` FROM `{$tableName}` WHERE `large_order_group` = :large_order_group"
+            "SELECT order_id FROM {$tableName} WHERE large_order_group = :large_order_group"
             );
         $statement->bindValue(':large_order_group', $large_order_group, PDO::PARAM_INT);
         $statement->execute();

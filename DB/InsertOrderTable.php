@@ -13,7 +13,7 @@ class InsertOrderTable
 
     public function insertOrderTable($menuDatas, $userId, $deliverydate, $large_order_group){
         $pdo = self::connect();
-        $statement = $pdo->prepare("INSERT INTO `order_info` (user_id, menu_id, order_count, sub_total_cost, delivery_date, order_date, large_order_group)
+        $statement = $pdo->prepare("INSERT INTO order_info (user_id, menu_id, order_count, sub_total_cost, delivery_date, order_date, large_order_group)
                         VALUES(:user_id, :menu_id, :order_count, :sub_total_cost, :delivery_date, CURRENT_TIMESTAMP, :large_order_group)");
         foreach ($menuDatas as $data){
             foreach ($data as $key => $value)
