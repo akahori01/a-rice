@@ -182,9 +182,11 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
                                         <li><?= $orderData->getName(). ' ✕ '.$orderData->getCount() ?></li>
                                         <li>お届け日：<?= $orderData->getDeliverydate() ?></li>
                                         <li>金額：<?= $orderModel->noneSubtotal($orderData->getSubTotalCostFormat()) ?></li>
+                                        <?php if (strtotime($orderData->getDeliverydate(). '-1 day') > strtotime($howToLogin->getCurrentDate())) : ?>
                                         <form action="" method="post">
                                             <li class="lower-right"><button name="reset" value="<?= $orderData->getOrderId(). ','. $orderData->getLargeOrderGroup(). ','. $orderData->getDeliverydate(). ',before' ?>" onclick="return confirm('削除してもよろしいですか?')">購入キャンセル</button></li>
                                         </form>
+                                        <?php endif ?>
                                     </ul>
                                 </div>
                             </div>
