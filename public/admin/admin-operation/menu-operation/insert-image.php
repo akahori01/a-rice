@@ -39,6 +39,8 @@ if(isset($_SESSION[ConstApp::SIGNUP_USER_ID])){
 if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isset($_SESSION['image'][$_GET['id']])) {
     $image = $_SESSION['image'][$_GET['id']];
 
+    $imageData = stream_get_contents($image['data']);
+
     switch ($image['type'])
     {
         case 'image/jpg':
@@ -49,7 +51,7 @@ if (isset($_GET['id']) && preg_match('/\A[0-9]+\z/u', $_GET['id']) === 1 && isse
             header('Location: ./../../../error.php');
             exit();
     }
-    echo $image['data'];
+    echo $imageData;
 }else{
     echo '';
 }

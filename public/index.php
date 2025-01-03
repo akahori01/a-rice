@@ -115,8 +115,6 @@ $_SESSION[ConstApp::SIGNUP_DATA] = [];
             <?php for ($i = 0; $i < count($menus); $i++): ?>
                 <?php $menuId = $menus[$i]->getMenuId() ?>
                 <?php $_SESSION['image'][$menuId]['type'] = $menus[$i]->getMimeType() ?>
-                <?php $imageData = stream_get_contents($menus[$i]->getImageData()) ?>
-                <?php var_dump($imageData) ?>
                 <?php $_SESSION['image'][$menuId]['data'] = $menus[$i]->getImageData() ?>
                 <?php $_SESSION['image'][$menuId]['last_modified'] = $menus[$i]->getUpdated_at() ?>
                 <div class="container">
