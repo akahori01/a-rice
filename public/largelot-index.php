@@ -224,6 +224,12 @@ $PriceRice30 = number_format($rice30). '円';
                     <button type="submit" name="largelot_index_token" value="<?= $randomId ?>">購入確認画面へ</button>
                     <p style="color: red;"><?= $_SESSION['message']['riceCount'] ?? '' ?></p>
                 </div>
+                <div class="notes">
+                    <ul>
+                        <li>※支払い方法、現金のみ</li>
+                        <li>※購入キャンセル、お届け日の1週間前まで</li>
+                    </ul>
+                </div>
                 </form>
         </div>
     </main>

@@ -183,7 +183,11 @@ $_SESSION['order_cfm_token'] = $randomId;
             <?php endif ?>
         </div>
         <h4>支払い方法: 現金</h4>
-        <h4>キャンセル日時: お届け日前日まで</h4>
+        <?php if (isset($_POST['index_token'])): ?>
+            <h4>キャンセル日時: お届け日の2日前まで</h4>
+        <?php elseif (isset($_POST['largelot_index_token'])): ?>
+            <h4>キャンセル日時: お届け日の1週間前まで</h4>
+        <?php endif ?>
         <h4>お届け日: <?= $calendar->getCheckDay() ?></h4>
         <h2><?= $menu->getTotalCostFormat() ?></h2>
         <div class="edit-forms">

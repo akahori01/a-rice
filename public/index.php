@@ -199,7 +199,7 @@ $_SESSION[ConstApp::SIGNUP_DATA] = [];
                 <div class="notes">
                     <ul>
                         <li>※支払い方法、現金のみ</li>
-                        <li>※購入キャンセル、お届け日の前日まで</li>
+                        <li>※購入キャンセル、お届け日の2日前まで</li>
                     </ul>
                 </div>
                 </form>
