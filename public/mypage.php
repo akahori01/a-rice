@@ -118,7 +118,7 @@ $oneWeekLaterNowTimeStamp = $howToLogin->getOneWeekLaterDateTimeStamp();
             <ul>
                 <li>※支払い方法、現金のみ</li>
                 <li>※通常の購入キャンセルは、お届け日の2日前まで</li>
-                <li>※150kg以上の購入キャンセルは、お届け日の1週間前まで</li>
+                <li>※150kg以上の場合は、お届け日の1週間前まで</li>
                 <li>※急遽キャンセルしたい場合は、<a href="inquiry.php">ご連絡ください</a></li>
             </ul>
         </div>
