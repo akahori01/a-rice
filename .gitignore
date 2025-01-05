@@ -1,3 +1,4 @@
 .DS_Store
 /vendor/
 /errorLog/
+/public/admin/donot-touch/
